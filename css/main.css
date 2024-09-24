@@ -1,5 +1,6 @@
 .section {
-  margin-left: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 html {
@@ -58,14 +59,145 @@ body {
 @font-face {
   font-family: "Moniqa-BoldDisplay";
   src: url("./../fonts/Moniqa-BoldDisplay.otf") format("truetype");
-  font-size: 100px;
 }
 h1 {
   font-family: "Moniqa-BoldDisplay";
   font-size: 100px;
 }
 
-.main-main {
+.section-main {
   background-image: url(./../img/main.png);
   min-height: 974px;
+}
+
+.logo-link {
+  font-family: "Moniqa-BoldDisplay";
+  font-size: 100px;
+}
+
+.header-nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-link {
+  margin-left: 0;
+}
+
+.icon {
+  margin-left: auto;
+  display: block;
+}
+
+.header-nav-item-link {
+  font-size: 30px;
+}
+
+.header-nav-item:not(:last-child) {
+  margin-right: 176px;
+}
+
+.main-title {
+  font-family: "Moniqa-BoldDisplay";
+  font-size: 250px;
+  padding-top: 90px;
+  min-width: 765px;
+  text-align: center;
+}
+
+.main-text {
+  font-size: 30px;
+  text-align: center;
+  max-width: 765px;
+}
+
+.main {
+  margin-left: 60px;
+  max-width: 765px;
+}
+
+.main-button {
+  padding-top: 38px;
+  padding-bottom: 38px;
+  text-align: center;
+  align-items: center;
+  min-width: 588px;
+  background-color: #423c3c;
+  font-size: 32px;
+  border: none;
+  outline: none;
+  color: #f8f2f2;
+}
+.main-button:hover, .main-button:focus {
+  background-color: #9d9292;
+  color: #f8f2f2;
+}
+
+.main-button-form {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.catalogue-title {
+  font-size: 110px;
+  font-family: "Moniqa-BoldDisplay";
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.catalogue-list {
+  display: flex;
+}
+
+.catalogue-list-item:not(:last-child) {
+  margin-right: 18px;
+}
+
+.catalogue-list-item-card-img {
+  border: 1px solid #000000;
+}
+
+.catalogue-list-item-card {
+  max-width: 588px;
+}
+
+.catalogue-list-item-card-text {
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.catalogue-list-item-card-price {
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 25px;
+}
+
+.catalogue-button-form {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.catalogue-button {
+  padding-top: 38px;
+  padding-bottom: 38px;
+  text-align: center;
+  align-items: center;
+  min-width: 588px;
+  background-color: #423c3c;
+  font-size: 32px;
+  border: none;
+  outline: none;
+  color: #f8f2f2;
+}
+.catalogue-button:hover, .catalogue-button:focus {
+  background-color: #9d9292;
+  color: #f8f2f2;
 }/*# sourceMappingURL=main.css.map */

@@ -11,22 +11,30 @@
     <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
-    <header>
-      <div>
+    <header class="section">
+      <div class="header">
         <div>
-          <a href="./index.html" class="link">Aveda</a>
+          <a href="./index.html" class="logo-link link">Aveda</a>
         </div>
-        <nav>
-          <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="../shop.html">Shop</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Event</a></li>
+        <nav class="header-nav">
+          <ul class="header-nav-list list">
+            <li class="header-nav-item">
+              <a href="./index.html" class="header-nav-item-link link">Home</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="../shop.html" class="header-nav-item-link link">Shop</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="" class="header-nav-item-link link">About</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="" class="header-nav-item-link link">Event</a>
+            </li>
           </ul>
         </nav>
         <div>
-          <a href="./cart.html"
-            ><svg class="icon" width="20px" height="25px">
+          <a href="./cart.html" class="cart-link link"
+            ><svg class="icon" width="30px" height="30px">
               <use href="./img/icon.svg#bag_icon"></use>
             </svg>
           </a>
@@ -35,54 +43,88 @@
     </header>
     <main>
       <!-- Section 1 Main -->
-      <section>
-        <div class="main-main">
-          <h1>Aveda</h1>
-          <p>
-            Welcome to Aveda – Where Beauty Meets Environmental Harmony!
+      <section class="section-main">
+        <div class="main">
+          <h1 class="main-title">Aveda</h1>
+          <p class="main-text">
+            Welcome to Aveda – Where Beauty Meets Environmental Harmony! <br />
+            <br />
             Discover the essence of eco-conscious beauty with Aveda, a brand
             that seamlessly blends nature and luxury. Our commitment to
             environmental responsibility is as deep-rooted as the botanicals we
             use in our products.
           </p>
-          <form action="./shop.html">
-            <button type="submit">Shop now</button>
+          <form class="main-button-form" action="./shop.html">
+            <button class="main-button btn" type="submit">Shop now</button>
           </form>
         </div>
       </section>
       <!-- Section 2 Catalogue -->
-      <section>
-        <div>
-          <h2>The Most Beloved</h2>
-          <ul>
-            <li>
-              <div>
-                <img src="./img/eco_soap.png" alt="" />
-                <p>Eco soap</p>
-                <p>19,99€</p>
-                <form action="./shop/eco_soap.html">
-                  <button type="submit">Shop now</button>
-                </form>
+      <section class="section-catalogue section">
+        <div class="catalogue">
+          <h2 class="catalogue-title">The Most Beloved</h2>
+          <ul class="catalogue-list list">
+            <li class="catalogue-list-item">
+              <div class="catalogue-list-item-card">
+                <img
+                  class="catalogue-list-item-card-img"
+                  src="./img/eco_soap.png"
+                  alt=""
+                />
+                <div class="catalogue-list-item-card-info">
+                  <p class="catalogue-list-item-card-text">Eco soap</p>
+                  <p class="catalogue-list-item-card-price">19,99€</p>
+                  <form
+                    class="catalogue-button-form"
+                    action="./shop/eco_soap.html"
+                  >
+                    <button class="catalogue-button btn" type="submit">
+                      Shop now
+                    </button>
+                  </form>
+                </div>
               </div>
             </li>
-            <li>
-              <div>
-                <img src="./img/body_brush.png" alt="" />
-                <p>Body brush</p>
-                <p>29,99€</p>
-                <form action="./shop/body_brush.html">
-                  <button type="submit">Shop now</button>
-                </form>
+            <li class="catalogue-list-item">
+              <div class="catalogue-list-item-card">
+                <img
+                  class="catalogue-list-item-card-img"
+                  src="./img/body_brush.png"
+                  alt=""
+                />
+                <div class="catalogue-list-item-card-info">
+                  <p class="catalogue-list-item-card-text">Body brush</p>
+                  <p class="catalogue-list-item-card-price">29,99€</p>
+                  <form
+                    class="catalogue-button-form"
+                    action="./shop/body_brush.html"
+                  >
+                    <button class="catalogue-button btn" type="submit">
+                      Shop now
+                    </button>
+                  </form>
+                </div>
               </div>
             </li>
-            <li>
-              <div>
-                <img src="./img/eco_bath_bomb.png" alt="" />
-                <p>Eco bath bomb</p>
-                <p>9,99€</p>
-                <form action="./shop/eco_bath_bomb.html">
-                  <button type="submit">Shop now</button>
-                </form>
+            <li class="catalogue-list-item">
+              <div class="catalogue-list-item-card">
+                <img
+                  class="catalogue-list-item-card-img"
+                  src="./img/eco_bath_bomb.png"
+                  alt=""
+                />
+                <div class="catalogue-list-item-card-info">
+                  <p class="catalogue-list-item-card-text">Eco bath bomb</p>
+                  <p class="catalogue-list-item-card-price">9,99€</p>
+                  <form
+                    class="catalogue-button-form"
+                    action="./shop/eco_bath_bomb.html"
+                  >
+                    <button class="catalogue-button btn" type="submit">
+                      Shop now
+                    </button>
+                  </form>
+                </div>
               </div>
             </li>
           </ul>
