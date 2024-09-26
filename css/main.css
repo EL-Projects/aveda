@@ -59,9 +59,6 @@ body {
   .technology-item-img {
     max-width: 200px;
   }
-  .products-image-img {
-    max-width: 343px;
-  }
   .header {
     display: flex;
   }
@@ -217,6 +214,73 @@ body {
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     font-size: 20px;
+  }
+  .products {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .products-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 40px;
+    max-width: 252px;
+  }
+  .products-text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    color: #000000;
+  }
+  .products-button {
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+    align-items: center;
+    min-width: 272px;
+    background-color: #423c3c;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #f8f2f2;
+  }
+  .products-button:hover, .products-button:focus {
+    background-color: #9d9292;
+    color: #f8f2f2;
+  }
+  .products-button {
+    margin-top: 32px;
+  }
+  .products-image {
+    margin-top: 32px;
+  }
+  .products-image-img {
+    width: 100%;
+  }
+  .footer-without-copyright {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .footer-list-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+  .footer-list-item-link {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+  }
+  .footer-list-item {
+    margin-right: 20px;
+  }
+  .footer-list-wrapper {
+    display: block;
+    margin-right: 20px;
   }
 }
 @media screen and (max-width: 1024px) {

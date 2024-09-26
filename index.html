@@ -239,14 +239,40 @@
 
             <button class="products-button btn" type="button">Shop now</button>
           </div>
-          <div class="products-image">
+          <!-- <div class="products-image">
             <img
               class="products-image-img"
-              src="./img/product_img.png"
+              srcset="./img/products_img.png"
+              src="./img/products_img-mobile.png 375w"
               alt=""
               width=""
             />
+          </div> -->
+          <div class="products-image">
+            <picture class="logotip">
+              <source
+                media="(max-width: 1024px)"
+                srcset="img/products_img-mobile.png"
+              />
+              <source
+                media="(max-width: 2560px)"
+                srcset="img/products_img.png"
+              />
+              <img src="img/products_img.png" alt="Реставрація ванн" />
+            </picture>
           </div>
+          <!-- <div class="products-image"">
+            
+            <img
+              class="products-image-img"
+              srcset="
+                ./img/products_img-mobile.png  375vw,
+                ./img/products_img.png 1024vw
+              "
+              src="./img/products_img-mobile.png "
+              alt=""
+            />
+          </div> -->
         </div>
       </section>
     </main>
@@ -254,7 +280,7 @@
     <footer class="section">
       <div class="footer">
         <div class="footer-without-copyright">
-          <div>
+          <div class="footer-list-wrapper">
             <h2 class="footer-list-title">Shop</h2>
             <ul class="footer-list list">
               <li class="footer-list-item">
@@ -280,7 +306,7 @@
               </li>
             </ul>
           </div>
-          <div>
+          <div class="footer-list-wrapper">
             <h2 class="footer-list-title">The Company</h2>
             <ul class="footer-list list">
               <li class="footer-list-item">
@@ -291,7 +317,7 @@
               </li>
             </ul>
           </div>
-          <div>
+          <div class="footer-list-wrapper">
             <h2 class="footer-list-title">The Comunity</h2>
             <ul class="footer-list list">
               <li class="footer-list-item">
@@ -302,7 +328,7 @@
               </li>
             </ul>
           </div>
-          <div>
+          <div class="footer-list-wrapper">
             <h2 class="footer-list-title">Follow us</h2>
             <ul class="footer-list list">
               <li class="footer-list-item">
