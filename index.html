@@ -44,6 +44,73 @@
               <use href="./img/icon.svg#bag_icon"></use>
             </svg>
           </a>
+
+          <button type="button" class="mobile-menu-open-btn" data-menu-open>
+            <svg class="mobile-menu-open-btn" width="25px" height="25px">
+              <use href="./img/icon.svg#mobile-icon-open"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-menu" data-menu>
+          <div class="container mobile-menu__container">
+            <button
+              type="button"
+              class="mobile-menu__close-btn"
+              data-menu-close
+            >
+              <svg class="mobile-menu__close-icon" width="40" height="40">
+                <use href="./img/icon.svg#mobile-icon-close"></use>
+              </svg>
+            </button>
+            <ul class="mobile-menu-list list">
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link current" href="./index.html"
+                  >Головна</a
+                >
+              </li>
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href="./save-life.html"
+                  >Подаруй дитині життя</a
+                >
+              </li>
+
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href="./sisters.html"
+                  >Сестринство милосердя</a
+                >
+              </li>
+
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href="./volounters.html"
+                  >Волонтери</a
+                >
+              </li>
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href="./news.html">Новини</a>
+              </li>
+              <li class="mobile-menu__item mobile-menu-contacts">
+                <a class="mobile-menu__link link" href="#">Контакты</a>
+              </li>
+            </ul>
+
+            <ul class="mobile-menu-contacts-list list">
+              <li class="mobile-menu-contacts__item">
+                <a
+                  class="mobile-menu-contacts__link-tel link"
+                  href="tel:+380985530990"
+                  >+380-98-55-30-990</a
+                >
+              </li>
+              <li class="mobile-menu-contacts__item">
+                <a
+                  class="mobile-menu-contacts__link-mail link"
+                  href="mailto:angellife.kyiv@gmail.com"
+                >
+                  angellife.kyiv@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
@@ -351,5 +418,6 @@
         <p class="copyright-text">© AVEDA Cosmetics 2024</p>
       </div>
     </footer>
+    <script src="./js/mobile.js"></script>
   </body>
 </html>

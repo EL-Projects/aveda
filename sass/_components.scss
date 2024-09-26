@@ -71,6 +71,127 @@ body {
   // background-size: cover;
   // width: 100%;
 }
+
+// mobile menu
+.mobile-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08),
+    0px 1px 3px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 500ms linear, visibility 500ms linear;
+  z-index: 20;
+}
+
+.mobile-menu__close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  // background-color: transparent;
+  border: none;
+  padding: 0;
+  line-height: 0;
+  cursor: pointer;
+  fill: #493340;
+
+  &:hover,
+  &:focus {
+    fill: #3d7097;
+  }
+}
+.mobile-menu__item {
+  margin-bottom: 20px;
+  border-bottom: 3px solid #493340;
+}
+
+.mobile-menu__link {
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 47px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #493340;
+  &:hover,
+  &:focus {
+    color: #3d7097;
+  }
+
+  &.current {
+    color: #3d7097;
+  }
+}
+.mobile-icon-close {
+  fill: #000000;
+}
+.mobile-menu-open-btn {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: auto;
+  margin-right: -10px;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  line-height: 0;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    fill: yellowgreen;
+  }
+  .mobile-menu-list {
+    margin-top: 48px;
+  }
+}
+.mobile-menu-open-btn {
+  fill: #000000;
+}
+.mobile-menu-contacts-list {
+  margin-top: 50px;
+}
+
+.mobile-menu-contacts__item {
+  :not(:last-child) {
+    margin-top: 15px;
+    border-bottom: #3d7097;
+  }
+}
+.mobile-menu-contacts__link-tel {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  color: #757575;
+}
+.mobile-menu-contacts__link-mail {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: #757575;
+}
+.mobile-menu-contacts {
+  display: none;
+  border-bottom: transparent;
+}
+
 // mobile devices
 @media screen and (min-width: 375px) and (max-width: 1023px) {
   .technology-item-img {
@@ -340,14 +461,20 @@ body {
   }
   .footer-list-wrapper {
     display: block;
-    margin-right: 20px;
+    min-width: 161px;
   }
   .footer-list-item:not(:last-child) {
   }
-
+  .footer-list-wrapper:nth-child(2n + 1) {
+    margin-right: 20px;
+  }
   .copyright {
   }
   .copyright-text {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 40px;
+    font-size: 10px;
+    font-weight: 600;
   }
 }
 
