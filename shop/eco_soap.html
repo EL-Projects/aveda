@@ -4,170 +4,420 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="../css/main.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Header -->
-    <header>
-      <div>
+    <header class="section card-header">
+      <div class="header">
         <div>
-          <a href="../index.html">Aveda</a>
+          <a href="./../index.html" class="logo-link link">Aveda</a>
         </div>
-        <nav>
-          <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="">Shop</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Event</a></li>
+        <nav class="header-nav">
+          <ul class="header-nav-list list">
+            <li class="header-nav-item">
+              <a href="../index.html" class="header-nav-item-link link">Home</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="../shop.html" class="header-nav-item-link link">Shop</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="" class="header-nav-item-link link">About</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="" class="header-nav-item-link link">Event</a>
+            </li>
           </ul>
         </nav>
-        <div><a href="">shop-icon</a></div>
+        <div>
+          <a href="./cart.html" class="cart-link link"
+            ><svg class="icon" width="30px" height="30px">
+              <use href="../img/icon.svg#bag_icon"></use>
+            </svg>
+          </a>
+
+          <button type="button" class="mobile-menu-open-btn" data-menu-open>
+            <svg class="mobile-menu-open-btn" width="18px" height="16px">
+              <use href="./img/icon.svg#mobile-icon-open"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-menu" data-menu>
+          <div class="container mobile-menu__container">
+            <button
+              type="button"
+              class="mobile-menu__close-btn"
+              data-menu-close
+            >
+              <svg class="mobile-menu__close-icon" width="18px" height="16px">
+                <use href="./img/icon.svg#mobile-icon-close"></use>
+              </svg>
+            </button>
+            <ul class="mobile-menu-list list">
+              <li class="mobile-menu__item">
+                <a
+                  class="mobile-menu__link link current"
+                  href="./index.html"
+                ></a>
+              </li>
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href=""></a>
+              </li>
+
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href=""></a>
+              </li>
+
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href=""></a>
+              </li>
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href=""></a>
+              </li>
+              <li class="mobile-menu__item mobile-menu-contacts">
+                <a class="mobile-menu__link link" href="#"></a>
+              </li>
+            </ul>
+
+            <ul class="mobile-menu-contacts-list list">
+              <li class="mobile-menu-contacts__item">
+                <a class="mobile-menu-contacts__link-tel link" href=""></a>
+              </li>
+              <li class="mobile-menu-contacts__item">
+                <a class="mobile-menu-contacts__link-mail link" href=""> </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
     <main>
-      <section>
-        <p>Home/Shop/Eco soap</p>
-        <div><img src="../img/eco_soap.png" alt="" /></div>
-        <div>
-          <ul>
-            <li><img src="../img/cleansing_soap_coal.png" alt="" /></li>
-            <li><img src="../img/cleansing_soap_coal_2.png" alt="" /></li>
-          </ul>
-          <div>
-            <h1>Eco soap</h1>
-            <p>
-              Our eco-friendly soap is handcrafted with natural, sustainably
-              sourced ingredients, free from harsh chemicals and artificial
-              additives. Gentle on your skin and the environment, this soap
-              offers a refreshing clean while reducing your carbon footprint
-            </p>
+      <section class="section">
+        <p class="eco-soap-product-card-text">Home/Shop/Eco soap</p>
+        <div class="eco-soap-product-card">
+          <div class="eco-soap-images">
+            <ul class="eco-soap-products-image-list list">
+              <li>
+                <div class="eco-soap-main-images-list-item">
+                  <img
+                    class="eco-soap-main-image"
+                    src="../img/eco_soap-product-img.png"
+                    alt=""
+                    width="790px"
+                  />
+                </div>
+              </li>
+              <li>
+                <ul class="eco-soap-add-images-list list">
+                  <li class="eco-soap-add-images-list-item">
+                    <div>
+                      <img
+                        class="eco-soap-add-images-list-img"
+                        src="../img/cleansing_soap_coal.png"
+                        alt=""
+                      />
+                    </div>
+                  </li>
+                  <li class="eco-soap-add-images-list-item">
+                    <div>
+                      <img
+                        class="eco-soap-add-images-list-img"
+                        src="../img/cleansing_soap_coal_2.png"
+                        alt=""
+                      />
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="eco-soap-product-description">
             <div>
-              <input
-                type="checkbox"
-                id="soap-weight-50"
-                name="soap-weight-50"
-                value=""
-              />
-              <label for="soap-weight-50">50 g</label>
-              <input
-                type="checkbox"
-                id="soap-weight-90"
-                name="soap-weight-50"
-                value=""
-              />
-              <label for="soap-weight-90">90 g</label>
+              <h1 class="eco-soap-product-description-title">Eco soap</h1>
+              <p class="eco-soap-product-description-text">
+                Our eco-friendly soap is handcrafted with natural, sustainably
+                sourced ingredients, free from harsh chemicals and artificial
+                additives. Gentle on your skin and the environment, this soap
+                offers a refreshing clean while reducing your carbon footprint
+              </p>
+              <div>
+                <input
+                  type="checkbox"
+                  id="soap-weight-50"
+                  name="soap-weight-50"
+                  value=""
+                />
+                <label class="eco-soap-weigth-text" for="soap-weight-50"
+                  >50 g</label
+                >
+                <input
+                  class="eco-soap-weigth-checkbox"
+                  type="checkbox"
+                  id="soap-weight-90"
+                  name="soap-weight-50"
+                  value=""
+                />
+                <label class="eco-soap-weigth-text" for="soap-weight-90"
+                  >90 g</label
+                >
+              </div>
             </div>
             <!-- calculation -->
-            <div></div>
 
-            <div>
-              <input type="number" min="1" max="100" value="1" id="price" />
-            </div>
-            <div>
-              <p>19,99€</p>
-              <ul>
-                <li>
-                  <form action="../cart.html" id="eco-soap-shop">
-                    <button type="submit" form="eco-soap-shop">Shop now</button>
-                  </form>
-                </li>
-                <li>
-                  <form action="" id="eco-soap-wish-list">
-                    <button type="submit" form="eco-soap-wish-list">
-                      Add to wish list
-                    </button>
-                  </form>
-                </li>
-              </ul>
+            <div class="eco-soap-product-calculation">
+              <input
+                class="eco-soap-product-calculation-input"
+                type="number"
+                min="1"
+                max="100"
+                value="1"
+                id="price"
+              />
+
+              <div>
+                <p class="eco-soap-product-calculation-price">19,99€</p>
+                <ul class="eco-soap-button-list list">
+                  <li class="eco-soap-button-list-item">
+                    <form action="" id="eco-soap-shop">
+                      <button
+                        class="eco-soap-list-shop-button btn"
+                        type="submit"
+                        form="eco-soap-shop"
+                      >
+                        Shop now
+                      </button>
+                    </form>
+                  </li>
+                  <li class="eco-soap-button-list-item">
+                    <form id="eco-soap-wish-list">
+                      <button
+                        class="eco-soap-list-wish-button btn"
+                        type="submit"
+                        form="eco-soap-wish-list"
+                      >
+                        Add to wish list
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- Section top products -->
-      <section>
-        <div>
-          <h2>Top products</h2>
-          <ul>
-            <li>
-              <div>
-                <img src="../img/gua_sha.png" alt="" />
-                <p>Gua sha</p>
-                <p>17,99€</p>
-                <form action="">
-                  <button type="submit">Shop now</button>
-                </form>
-              </div>
-            </li>
 
-            <li>
-              <div>
-                <img src="../img/cleansing_soap_from_coal.png" alt="" />
-                <p>Cleansing soap from coal</p>
-                <p>24,99€</p>
-                <form action="./shop/eco_soap.html">
-                  <button type="submit">Shop now</button>
-                </form>
-              </div>
-            </li>
-            <li>
-              <div>
-                <img src="../img/body_brush_side.png" alt="" />
-                <p>Body brush</p>
-                <p>21,99€</p>
-                <form action="./shop/eco_soap.html">
-                  <button type="submit">Shop now</button>
-                </form>
-              </div>
-            </li>
-            <li>
-              <div>
-                <img src="../img/eco_bath_bomb_top.png" alt="" />
-                <p>Eco bath bomb</p>
-                <p>9,99€</p>
-                <form action="./shop/eco_soap.html">
-                  <button type="submit">Shop now</button>
-                </form>
-              </div>
-            </li>
-          </ul>
+      <!-- Section top products -->
+
+      <section class="section">
+        <div>
+          <h2 class="eco-soap-top-products-title">Top products</h2>
+          <div>
+            <ul class="eco-soap-top-products-list list">
+              <!-- Gua sha product -->
+              <li>
+                <div>
+                  <ul class="list">
+                    <li>
+                      <div class="eco-soap-top-products-list-item">
+                        <img
+                          class="eco-soap-top-products-list-img"
+                          src="../img/gua_sha.png"
+                          alt="Gua Sha"
+                        />
+                      </div>
+                    </li>
+                    <li><p class="eco-soap-top-products-name">Gua Sha</p></li>
+                    <li><p class="eco-soap-top-products-price">17,99€</p></li>
+                    <li>
+                      <form action="">
+                        <button
+                          class="eco-soap-top-products-button btn"
+                          type="submit"
+                        >
+                          Shop now
+                        </button>
+                      </form>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Cleansing soap from coal product -->
+              <li>
+                <ul class="list">
+                  <li>
+                    <div class="eco-soap-top-products-list-item">
+                      <img
+                        class="eco-soap-top-products-list-img"
+                        src="../img/cleansing_soap_from_coal.png"
+                        alt="Cleansing Soap from Coal"
+                      />
+                    </div>
+                  </li>
+                  <li>
+                    <p class="eco-soap-top-products-name">
+                      Cleansing soap from coal
+                    </p>
+                  </li>
+                  <li><p class="eco-soap-top-products-price">24,99€</p></li>
+                  <li>
+                    <form action="./shop/eco_soap.html">
+                      <button
+                        class="eco-soap-top-products-button btn"
+                        type="submit"
+                      >
+                        Shop now
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Body brush product -->
+              <li>
+                <ul class="list">
+                  <li>
+                    <div class="eco-soap-top-products-list-item">
+                      <img
+                        class="eco-soap-top-products-list-img"
+                        src="../img/body_brush_side.png"
+                        alt="Body Brush"
+                      />
+                    </div>
+                  </li>
+                  <li><p class="eco-soap-top-products-name">Body Brush</p></li>
+                  <li><p class="eco-soap-top-products-price">21,99€</p></li>
+                  <li>
+                    <form action="./shop/eco_soap.html">
+                      <button
+                        class="eco-soap-top-products-button btn"
+                        type="submit"
+                      >
+                        Shop now
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Eco bath bomb product -->
+              <li>
+                <ul class="list">
+                  <li>
+                    <div class="eco-soap-top-products-list-item">
+                      <img
+                        class="eco-soap-top-products-list-img"
+                        src="../img/eco_bath_bomb_top.png"
+                        alt="Eco Bath Bomb"
+                      />
+                    </div>
+                  </li>
+                  <li>
+                    <p class="eco-soap-top-products-name">Eco bath bomb</p>
+                  </li>
+                  <li><p class="eco-soap-top-products-price">9,99€</p></li>
+                  <li>
+                    <form action="./shop/eco_soap.html">
+                      <button
+                        class="eco-soap-top-products-button btn"
+                        type="submit"
+                      >
+                        Shop now
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>
     <!-- Footer -->
-    <footer>
-      <div>
-        <h2>Shop</h2>
-        <ul>
-          <li><a href="">Shipping & Returns </a></li>
-          <li><a href="">Payments</a></li>
-          <li><a href="">FAQ</a></li>
-          <li><a href="">Privacy Policy </a></li>
-          <li><a href="">Terms & Conditions</a></li>
-        </ul>
+    <footer class="section card-footer">
+      <div class="footer">
+        <div class="footer-without-copyright">
+          <div class="footer-list-wrapper">
+            <h2 class="footer-list-title">Shop</h2>
+            <ul class="footer-list list">
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href=""
+                  >Shipping & Returns
+                </a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Payments</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">FAQ</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href=""
+                  >Privacy Policy
+                </a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href=""
+                  >Terms & Conditions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-list-wrapper">
+            <h2 class="footer-list-title">The Company</h2>
+            <ul class="footer-list list">
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Cotacts</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Stockists</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-list-wrapper">
+            <h2 class="footer-list-title">The Comunity</h2>
+            <ul class="footer-list list">
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Investors</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Beauty guide</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-list-wrapper">
+            <h2 class="footer-list-title">Follow us</h2>
+            <ul class="footer-list list">
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Facebook</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Instagram</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Youtube </a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Pinterest</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div>
-        <h2>The Company</h2>
-        <ul>
-          <li><a href="">Cotacts</a></li>
-          <li><a href="">Stockists</a></li>
-        </ul>
+      <div class="copyright">
+        <p class="copyright-text">© AVEDA Cosmetics 2024</p>
       </div>
-      <div>
-        <h2>The Comunity</h2>
-        <ul>
-          <li><a href="">Investors</a></li>
-          <li><a href="">Beauty guide</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Follow us</h2>
-        <ul>
-          <li><a href="">Facebook</a></li>
-          <li><a href="">Instagram</a></li>
-          <li><a href="">Youtube </a></li>
-          <li><a href="">Pinterest</a></li>
-        </ul>
-      </div>
-      <div><p>© AVEDA Cosmetics 2024</p></div>
     </footer>
+    <script src="../js/mobile.js"></script>
   </body>
 </html>
