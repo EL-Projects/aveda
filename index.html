@@ -108,10 +108,10 @@
           <p class="main-text">
             Welcome to Aveda – Where Beauty Meets Environmental Harmony! <br />
             <br />
-            Discover the essence of eco-conscious beauty with Aveda, a brand
-            that seamlessly blends nature and luxury. Our commitment to
-            environmental responsibility is as deep-rooted as the botanicals we
-            use in our products.
+            Discover the essence of eco-conscious beauty with Aveda,
+            <br class="only-tablet" />a brand that seamlessly blends nature and
+            luxury. Our commitment to environmental responsibility is as
+            deep-rooted as the botanicals we use in our products.
           </p>
           <form class="main-button-form" action="./shop.html">
             <button class="main-button btn" type="submit">Shop now</button>
@@ -190,7 +190,7 @@
       <!-- Section 3 About -->
       <section class="">
         <div>
-          <h2 class="about-title">About us</h2>
+          <h2 class="about-title">ABOUT US</h2>
           <ul class="about-list list">
             <li class="about-list-item">
               <div class="about-list-wrapper">
@@ -302,14 +302,22 @@
           <div class="products-image">
             <picture class="logotip">
               <source
-                media="(max-width: 1024px)"
+                media="(max-width: 1023px)"
                 srcset="img/products_img-mobile.png"
               />
               <source
-                media="(max-width: 2560px)"
+                media="(min-width: 1024px)(max-width:1919px)"
+                srcset="img/products_img-tablet.png"
+              />
+              <source
+                media="(min-width: 1920px)"
                 srcset="img/products_img.png"
               />
-              <img src="img/products_img.png" alt="Реставрація ванн" />
+              <img
+                class="products-image-img"
+                src="img/products_img.png"
+                alt="Реставрація ванн"
+              />
             </picture>
           </div>
           <!-- <div class="products-image"">
