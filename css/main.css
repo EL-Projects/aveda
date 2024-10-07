@@ -54,6 +54,8 @@ body {
 @font-face {
   font-family: "Moniqa-BoldDisplay";
   src: url("./../fonts/Moniqa-BoldDisplay.otf") format("truetype");
+  font-family: "Moniqa-BoldCondensedDisplay";
+  src: url("./../fonts/Moniqa-BoldCondensedDisplay.ttf") format("truetype");
 }
 .footer-list-title {
   text-transform: uppercase;
@@ -170,7 +172,7 @@ body {
     display: none;
   }
   .logo-link {
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 20px;
   }
   .header {
@@ -184,7 +186,7 @@ body {
     margin-right: 12px;
   }
   .main-title {
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     padding-top: 149px;
     font-size: 80px;
     padding-left: 16px;
@@ -228,7 +230,7 @@ body {
     padding-left: 16px;
   }
   .catalogue-title {
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 50px;
     margin-top: 40px;
   }
@@ -265,7 +267,7 @@ body {
   .about-title {
     padding-left: 16px;
     margin-top: 40px;
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 50px;
     font-weight: 500;
   }
@@ -297,7 +299,7 @@ body {
   .technology-title {
     margin-top: 40px;
     text-align: center;
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 50px;
     font-weight: 600;
   }
@@ -415,7 +417,7 @@ body {
     padding-right: 40px;
   }
   .logo-link {
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 80px;
   }
   .header-nav-list {
@@ -458,7 +460,7 @@ body {
     align-items: center;
   }
   .main-title {
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 190px;
     max-width: 310px;
     text-align: center;
@@ -497,7 +499,7 @@ body {
   }
   .catalogue-title {
     font-size: 100px;
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     margin-top: 80px;
     margin-bottom: 60px;
     letter-spacing: 0px;
@@ -555,7 +557,7 @@ body {
     text-transform: uppercase;
     padding-left: 68px;
     margin-top: 100px;
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 100px;
   }
   .about-subtitle {
@@ -595,7 +597,7 @@ body {
   .technology-title {
     margin-top: 80px;
     font-size: 100px;
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
   }
   .technology-list {
     margin-top: 60px;
@@ -706,7 +708,7 @@ body {
     padding-right: 60px;
   }
   .logo-link {
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 100px;
   }
   .header-nav-list {
@@ -736,7 +738,7 @@ body {
     margin-right: 176px;
   }
   .main-title {
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 250px;
     padding-top: 90px;
     min-width: 765px;
@@ -778,7 +780,7 @@ body {
   }
   .catalogue-title {
     font-size: 110px;
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     margin-top: 100px;
     margin-bottom: 40px;
   }
@@ -833,7 +835,7 @@ body {
     text-transform: uppercase;
     padding-left: 60px;
     margin-top: 100px;
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 100px;
   }
   .about-subtitle {
@@ -875,7 +877,7 @@ body {
     margin-top: 100px;
     font-size: 110px;
     text-align: center;
-    font-family: "Moniqa-BoldDisplay";
+    font-family: "Moniqa-BoldCondensedDisplay";
   }
   .technology-list {
     margin-top: 40px;
