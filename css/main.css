@@ -53,7 +53,7 @@ body {
 
 @font-face {
   font-family: "Moniqa-BoldDisplay";
-  src: url("./../fonts/Moniqa-BoldDisplay.ttf") format("truetype");
+  src: url("./../fonts/Moniqa-BoldDisplay.otf") format("truetype");
 }
 .footer-list-title {
   text-transform: uppercase;
@@ -147,7 +147,7 @@ body {
     display: none;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1919px) {
   .catalogue-hide {
     display: none;
   }
@@ -489,6 +489,7 @@ body {
   }
   .catalogue-list {
     display: flex;
+    justify-content: center;
   }
   .catalogue-list-item-card-img {
     border: 1px solid #000000;

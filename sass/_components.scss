@@ -63,7 +63,7 @@ body {
 
 @font-face {
   font-family: "Moniqa-BoldDisplay";
-  src: url("./../fonts/Moniqa-BoldDisplay.ttf") format("truetype");
+  src: url("./../fonts/Moniqa-BoldDisplay.otf") format("truetype");
 }
 .footer-list-title {
   text-transform: uppercase;
@@ -202,7 +202,7 @@ body {
 
 // mobile devices
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1919px) {
   .catalogue-hide {
     display: none;
   }
