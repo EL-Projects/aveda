@@ -1,10 +1,8 @@
 // tablet
-@media screen and (min-width: 1023px) and (max-width: 1919px) {
+@media screen and (min-width: 1024px) and (max-width: 1919px) {
   .section-main {
     background-image: url(./../img/main-tablet.png);
-    // min-height: 547px;
-    // background-size: contain;
-    // background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
   }
   .section {

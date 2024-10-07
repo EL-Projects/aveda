@@ -360,6 +360,7 @@ body {
   .footer-without-copyright {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   .footer-list-title {
     font-family: "Montserrat", sans-serif;
@@ -380,19 +381,33 @@ body {
     display: block;
     min-width: 161px;
   }
-  .footer-list-wrapper:nth-child(2n+1) {
-    margin-right: 20px;
-  }
   .copyright-text {
     font-family: "Montserrat", sans-serif;
     margin-top: 40px;
+    margin-bottom: 40px;
     font-size: 10px;
     font-weight: 600;
   }
+  .footer-without-copyright :nth-child(1) {
+    order: 1;
+  }
+  .footer-without-copyright :nth-child(2) {
+    order: 3;
+  }
+  .footer-without-copyright :nth-child(3) {
+    order: 4;
+  }
+  .footer-without-copyright :nth-child(4) {
+    order: 2;
+  }
+  .footer-margin {
+    margin-left: 20px;
+  }
 }
-@media screen and (min-width: 1023px) and (max-width: 1919px) {
+@media screen and (min-width: 1024px) and (max-width: 1919px) {
   .section-main {
     background-image: url(./../img/main-tablet.png);
+    background-size: cover;
     background-repeat: no-repeat;
   }
   .section {
