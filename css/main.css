@@ -1,3 +1,9 @@
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 18/10), only screen and (min-resolution: 170dpi) {
+  /* Even higher DPI devices */
+  body {
+    font-size: 100%;
+  }
+}
 html {
   box-sizing: border-box;
 }
