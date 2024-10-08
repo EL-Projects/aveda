@@ -54,7 +54,7 @@
   border-top: #000 1px solid;
 }
 .eco-soap-top-products-title {
-  font-family: "Moniqa-BoldDisplay";
+  font-family: "Moniqa-BoldCondensedDisplay";
   font-weight: 400;
   font-size: 110px;
   margin-top: 100px;
@@ -214,4 +214,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.eco-soap-weigth {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 300;
 }

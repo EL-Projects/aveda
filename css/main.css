@@ -1,9 +1,9 @@
-body {
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 18/10), only screen and (min-resolution: 170dpi) {
+  /* Even higher DPI devices */
+  body {
+    font-size: 100%;
+  }
 }
-
 html {
   box-sizing: border-box;
 }
@@ -160,6 +160,78 @@ body {
     display: none;
   }
 }
+.cart-icon-wrapper {
+  right: 90px;
+  position: relative;
+  float: right;
+}
+
+.cart-icon {
+  font-size: 30px;
+  cursor: pointer;
+  color: #007bff;
+  fill: #000000;
+}
+
+.cart-badge {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  top: 0px;
+  right: -60px;
+  background-color: transparent;
+  color: black;
+  padding: 4px 8px;
+  font-size: 25px;
+}
+
+.minus-button {
+  font-size: 48px;
+  margin-right: 47px;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  display: block;
+}
+
+.plus-button {
+  font-size: 48px;
+  margin-left: 48px;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  display: block;
+}
+
+.product-quantity {
+  font-size: 50px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+.quantity-controls {
+  display: flex;
+}
+
+.total-price {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 70px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.products {
+  justify-content: space-between;
+}
+
+.button-div {
+  display: flex;
+}
+
 @media screen and (min-width: 375px) and (max-width: 1023px) {
   .technology-item-img {
     max-width: 200px;
@@ -195,6 +267,7 @@ body {
     font-family: "Moniqa-BoldCondensedDisplay";
     padding-top: 149px;
     font-size: 80px;
+    line-height: 80px;
     padding-left: 16px;
     letter-spacing: 0;
   }
@@ -627,13 +700,6 @@ body {
   .products-image-img {
     width: 462px;
   }
-  .products {
-    display: flex;
-    border-top: #000000 1px solid;
-    border-bottom: #000000 1px solid;
-    margin-top: 80px;
-    justify-content: space-between;
-  }
   .products-wrapper {
     padding-left: 60px;
     max-width: 588px;
@@ -898,7 +964,7 @@ body {
     text-align: center;
     font-size: 32px;
   }
-  .products {
+  .main-page-products {
     display: flex;
     border-top: #000000 1px solid;
     border-bottom: #000000 1px solid;
@@ -1035,7 +1101,7 @@ body {
 }
 
 .eco-soap-top-products-title {
-  font-family: "Moniqa-BoldDisplay";
+  font-family: "Moniqa-BoldCondensedDisplay";
   font-weight: 400;
   font-size: 110px;
   margin-top: 100px;
@@ -1192,4 +1258,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.eco-soap-weigth {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 300;
 }/*# sourceMappingURL=main.css.map */
