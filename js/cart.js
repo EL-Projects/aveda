@@ -175,8 +175,8 @@ function displayCartItems() {
     const imageContainer = document.createElement("div");
     imageContainer.classList.add("cart-item-image-container");
     imageContainer.innerHTML = `
-      <img src="${product.image}" alt="${product.name}" class="cart-item-image">
-    `;
+    <img src="${product.image}" alt="${product.name}" class="cart-item-image">
+  `;
 
     // Создаем контейнер для информации
     const infoContainer = document.createElement("div");
@@ -186,71 +186,106 @@ function displayCartItems() {
       : "Без множителя";
 
     infoContainer.innerHTML = `
-      <span>${product.name}</span>
-      <span>${multiplierDisplayName}</span>
-      <div class="cart-item-actions">
-        <button onclick="removeCartItem('${item.uniqueId}')">Удалить</button>
-        <span class="cart-button-wrapper
-        <button onclick="decreaseCartQuantity('${item.uniqueId}')">-</button>
-        <span>${item.quantity}</span>
-        <button onclick="increaseCartQuantity('${item.uniqueId}')">+</button>
-        </span>
-      </div>
-    `;
+    <div class="product-name-wrap">
+      <span class="product-name">${product.name}</span>
+      <span class="product-name-weight">${multiplierDisplayName}</span>
+    </div>
+    <div class="cart-item-actions">
+      <button class="cart-remove-button" onclick="removeCartItem('${item.uniqueId}')">Remove</button>
+      <span class="cart-button-wrapper">
+        <button class="cart-calc-button" onclick="decreaseCartQuantity('${item.uniqueId}')">-</button>
+        <span class="cart-calc-quantity">${item.quantity}</span>
+        <button class="cart-calc-button" onclick="increaseCartQuantity('${item.uniqueId}')">+</button>
+      </span>
+      <span class="cart-calc-quantity">${item.price}€</span>
+    </div>
+  `;
 
-    // Создаем общий контейнер для Subtotal, Total, ссылки, иконки и кнопки оплаты
+    // Создаем общий контейнер для Subtotal, Total и кнопки
+    const summaryContainer = document.createElement("div");
+    summaryContainer.classList.add("summary-container"); // Добавьте класс для стилизации
+
+    // Создаем контейнер для Subtotal и Total
     const totalContainer = document.createElement("div");
     totalContainer.classList.add("subtotal-total-container");
 
     // Главный текст
     const mainText = document.createElement("span");
     mainText.classList.add("main-text");
-    mainText.textContent = "Общая сумма:"; // Основной текст
+    mainText.textContent = "Order Summary"; // Основной текст
 
     // Подитог (Subtotal)
-    const subtotalSpan = document.createElement("span");
+    const subtotalDiv = document.createElement("div"); // Новый div для Subtotal
+    subtotalDiv.classList.add("subtotal-container"); // Класс для стилизации
+
+    const subtotalSpan = document.createElement("span"); // Новый span для текста Subtotal
     subtotalSpan.classList.add("subtotal-span");
-    subtotalSpan.innerHTML = `Subtotal: <span class="subtotal-value">${itemTotal} €</span>`;
+    subtotalSpan.textContent = "Subtotal: ";
+
+    const subtotalValueSpan = document.createElement("span"); // Новый span для значения Subtotal
+    subtotalValueSpan.classList.add("subtotal-value");
+    subtotalValueSpan.textContent = `${itemTotal} €`;
+
+    subtotalDiv.appendChild(subtotalSpan); // Добавляем текст Subtotal в div
+    subtotalDiv.appendChild(subtotalValueSpan); // Добавляем значение Subtotal в div
 
     // Итог (Total)
-    const totalSpan = document.createElement("span");
+    const totalDiv = document.createElement("div"); // Новый div для Total
+    totalDiv.classList.add("total-container"); // Класс для стилизации
+
+    const totalSpan = document.createElement("span"); // Новый span для текста Total
     totalSpan.classList.add("total-span");
-    totalSpan.innerHTML = `Total: <span class="total-value">${total.toFixed(
-      2
-    )} €</span>`;
+    totalSpan.textContent = "Total: ";
 
-    // Добавляем ссылку
-    const link = document.createElement("a");
-    link.href = "#"; // Вставьте ссылку на нужную страницу
-    link.classList.add("checkout-link");
-    link.textContent = "Перейти к оплате";
+    const totalValueSpan = document.createElement("span"); // Новый span для значения Total
+    totalValueSpan.classList.add("total-value");
+    totalValueSpan.textContent = `${total.toFixed(2)} €`;
 
-    // Заглушка для иконки (можно использовать иконку Font Awesome или другую)
+    totalDiv.appendChild(totalSpan); // Добавляем текст Total в div
+    totalDiv.appendChild(totalValueSpan); // Добавляем значение Total в div
+
+    // Заглушка для иконки
     const iconPlaceholder = document.createElement("span");
     iconPlaceholder.classList.add("icon-placeholder");
     iconPlaceholder.innerHTML = '<i class="fa fa-shopping-cart"></i>'; // Здесь можно вставить любую иконку
 
+    // Текст перед иконкой
+    const iconTextPlaceholder = document.createElement("span");
+    iconTextPlaceholder.classList.add("icon-text-placeholder");
+    iconTextPlaceholder.textContent = "Ваш заказ"; // Текст перед иконкой
+
+    // Добавляем элементы в контейнер Subtotal и Total
+    totalContainer.appendChild(mainText);
+    totalContainer.appendChild(subtotalDiv); // Добавляем новый div для Subtotal
+    totalContainer.appendChild(totalDiv); // Добавляем новый div для Total
+    totalContainer.appendChild(iconTextPlaceholder);
+    totalContainer.appendChild(iconPlaceholder);
+
+    // Создаем контейнер для кнопки оплаты
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+
     // Кнопка оплаты
     const checkoutButton = document.createElement("button");
     checkoutButton.classList.add("checkout-button");
-    checkoutButton.textContent = "Оплатить";
+    checkoutButton.textContent = "Checkout";
     checkoutButton.addEventListener("click", handleCheckout); // Привязываем обработчик оплаты
 
-    // Добавляем все элементы в общий контейнер
-    totalContainer.appendChild(mainText);
-    totalContainer.appendChild(subtotalSpan);
-    totalContainer.appendChild(totalSpan);
-    totalContainer.appendChild(link);
-    totalContainer.appendChild(iconPlaceholder);
-    totalContainer.appendChild(checkoutButton); // Добавляем кнопку оплаты
+    // Добавляем кнопку оплаты в контейнер кнопки
+    buttonContainer.appendChild(checkoutButton);
 
-    // Добавляем информацию о продукте и общий контейнер на страницу
+    // Добавляем оба контейнера в общий контейнер
+    summaryContainer.appendChild(totalContainer);
+    summaryContainer.appendChild(buttonContainer);
+
+    // Добавляем все элементы на страницу
     itemElement.appendChild(imageContainer);
     itemElement.appendChild(infoContainer);
-    itemElement.appendChild(totalContainer);
+    itemElement.appendChild(summaryContainer); // Добавляем общий контейнер
+
+    // Добавляем информацию о продукте на страницу
     cartItemsContainer.appendChild(itemElement);
   });
-
   // Обновляем общую сумму для всех товаров в корзине
   const totalLabel = document.createElement("span");
   totalLabel.textContent = "Total: "; // Текст "Total"
@@ -317,7 +352,7 @@ function handleCheckout() {
     0
   );
 
-  alert(`Сумма к оплате: ${totalAmount.toFixed(2)} € Pay complete!`);
+  alert(`Price for pay: ${totalAmount.toFixed(2)} € Pay complete!`);
 
   // Очистка корзины после успешной оплаты
   clearCart();
