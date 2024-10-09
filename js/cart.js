@@ -22,13 +22,18 @@ let quantities = {
   3: 1,
 };
 
-// Обновление бейджа на главной странице
+// Обновление бейджа на всех страницах
 function updateCartBadge() {
   const cartBadge = document.getElementById("cart-badge");
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartBadge.textContent = totalItems;
+  cartBadge.textContent = totalItems > 0 ? totalItems : ""; // Скрыть бейдж, если корзина пуста
 }
 
+// Вызов функции для обновления бейджа при загрузке страницы
+document.addEventListener("DOMContentLoaded", () => {
+  // Обновление бейджа при загрузке
+  updateCartBadge();
+});
 // Добавление товара в корзину
 function addToCart(id, price, multiplier) {
   // Создаём уникальный идентификатор для товара в корзине
@@ -79,6 +84,7 @@ function increaseCartQuantity(uniqueId) {
   if (cartItem) {
     cartItem.quantity++;
     localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartBadge();
     displayCartItems();
   }
 }
@@ -89,6 +95,7 @@ function decreaseCartQuantity(uniqueId) {
   if (cartItem && cartItem.quantity > 1) {
     cartItem.quantity--;
     localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartBadge();
     displayCartItems();
   }
 }
@@ -97,6 +104,7 @@ function decreaseCartQuantity(uniqueId) {
 function removeCartItem(uniqueId) {
   cart = cart.filter((item) => item.uniqueId !== uniqueId);
   localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartBadge();
   displayCartItems();
 }
 
@@ -139,11 +147,20 @@ function updateDisplayedPrice(id) {
 }
 
 // Отображение товаров в корзине
+// Отображение товаров в корзине
 function displayCartItems() {
   const cartItemsContainer = document.getElementById("cart-items");
   const cartTotalContainer = document.getElementById("cart-total");
 
-  cartItemsContainer.innerHTML = "";
+  cartItemsContainer.innerHTML = ""; // Очищаем контейнер
+  cartTotalContainer.innerHTML = ""; // Также очищаем общую сумму
+
+  // Если корзина пустая, можно добавить сообщение об этом
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = "<p>Корзина пуста.</p>";
+    return; // Завершаем выполнение функции, если корзина пуста
+  }
+
   let total = 0;
 
   cart.forEach((item) => {
@@ -173,42 +190,75 @@ function displayCartItems() {
       <span>${multiplierDisplayName}</span>
       <div class="cart-item-actions">
         <button onclick="removeCartItem('${item.uniqueId}')">Удалить</button>
+        <span class="cart-button-wrapper
         <button onclick="decreaseCartQuantity('${item.uniqueId}')">-</button>
         <span>${item.quantity}</span>
         <button onclick="increaseCartQuantity('${item.uniqueId}')">+</button>
+        </span>
       </div>
     `;
 
-    // Создаем отдельные элементы для отображения цены и подитога
-    const priceElement = document.createElement("span");
-    priceElement.textContent = `${item.price} €`; // Цена товара
+    // Создаем общий контейнер для Subtotal, Total, ссылки, иконки и кнопки оплаты
+    const totalContainer = document.createElement("div");
+    totalContainer.classList.add("subtotal-total-container");
 
-    const subtotalLabel = document.createElement("span");
-    subtotalLabel.textContent = "Subtotal: "; // Текст "Subtotal"
+    // Главный текст
+    const mainText = document.createElement("span");
+    mainText.classList.add("main-text");
+    mainText.textContent = "Общая сумма:"; // Основной текст
 
-    const subtotalValue = document.createElement("span");
-    subtotalValue.textContent = `${itemTotal} €`; // Подитог
+    // Подитог (Subtotal)
+    const subtotalSpan = document.createElement("span");
+    subtotalSpan.classList.add("subtotal-span");
+    subtotalSpan.innerHTML = `Subtotal: <span class="subtotal-value">${itemTotal} €</span>`;
 
-    // Добавляем элементы для цены и подитога в контейнер
-    infoContainer.appendChild(priceElement);
-    infoContainer.appendChild(subtotalLabel);
-    infoContainer.appendChild(subtotalValue);
+    // Итог (Total)
+    const totalSpan = document.createElement("span");
+    totalSpan.classList.add("total-span");
+    totalSpan.innerHTML = `Total: <span class="total-value">${total.toFixed(
+      2
+    )} €</span>`;
 
-    // Добавляем оба контейнера на страницу
-    cartItemsContainer.appendChild(imageContainer);
-    cartItemsContainer.appendChild(infoContainer);
+    // Добавляем ссылку
+    const link = document.createElement("a");
+    link.href = "#"; // Вставьте ссылку на нужную страницу
+    link.classList.add("checkout-link");
+    link.textContent = "Перейти к оплате";
+
+    // Заглушка для иконки (можно использовать иконку Font Awesome или другую)
+    const iconPlaceholder = document.createElement("span");
+    iconPlaceholder.classList.add("icon-placeholder");
+    iconPlaceholder.innerHTML = '<i class="fa fa-shopping-cart"></i>'; // Здесь можно вставить любую иконку
+
+    // Кнопка оплаты
+    const checkoutButton = document.createElement("button");
+    checkoutButton.classList.add("checkout-button");
+    checkoutButton.textContent = "Оплатить";
+    checkoutButton.addEventListener("click", handleCheckout); // Привязываем обработчик оплаты
+
+    // Добавляем все элементы в общий контейнер
+    totalContainer.appendChild(mainText);
+    totalContainer.appendChild(subtotalSpan);
+    totalContainer.appendChild(totalSpan);
+    totalContainer.appendChild(link);
+    totalContainer.appendChild(iconPlaceholder);
+    totalContainer.appendChild(checkoutButton); // Добавляем кнопку оплаты
+
+    // Добавляем информацию о продукте и общий контейнер на страницу
+    itemElement.appendChild(imageContainer);
+    itemElement.appendChild(infoContainer);
+    itemElement.appendChild(totalContainer);
+    cartItemsContainer.appendChild(itemElement);
   });
 
-  // Создание отдельного элемента для Total
-  cartTotalContainer.innerHTML = ""; // Очищаем контейнер перед добавлением новых элементов
-
+  // Обновляем общую сумму для всех товаров в корзине
   const totalLabel = document.createElement("span");
   totalLabel.textContent = "Total: "; // Текст "Total"
 
   const totalValue = document.createElement("span");
-  totalValue.textContent = `${total.toFixed(2)} €`; // Сумма
+  totalValue.textContent = `${total.toFixed(2)} €`; // Общая сумма
 
-  // Добавляем элементы для Total в контейнер
+  // Добавляем итоговую сумму в контейнер
   cartTotalContainer.appendChild(totalLabel);
   cartTotalContainer.appendChild(totalValue);
 }
@@ -217,6 +267,7 @@ function displayCartItems() {
 function clearCart() {
   cart = [];
   localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartBadge();
   displayCartItems();
 }
 
@@ -247,10 +298,11 @@ if (document.querySelector(".products")) {
 if (document.querySelector("#cart-items")) {
   displayCartItems();
 
-  document.getElementById("clear-cart").addEventListener("click", clearCart);
+  // document.getElementById("clear-cart").addEventListener("click", clearCart);
 
   // Обработчик события для кнопки "Оплатить"
   document.getElementById("checkout").addEventListener("click", handleCheckout);
+  updateCartBadge();
 }
 
 // Функция обработки оплаты
@@ -265,17 +317,9 @@ function handleCheckout() {
     0
   );
 
-  // Здесь вы можете интегрировать платёжный шлюз или систему оплаты
   alert(`Сумма к оплате: ${totalAmount.toFixed(2)} € Pay complete!`);
 
   // Очистка корзины после успешной оплаты
   clearCart();
+  console.log("Корзина очищена."); // Добавьте отладочное сообщение
 }
-
-// Установка слушателя событий на радио-кнопки
-document.querySelectorAll('input[type="radio"]').forEach((input) => {
-  input.addEventListener("change", (event) => {
-    const id = event.target.name.split("-")[1]; // Получаем id из имени
-    updatePrice(id); // Обновляем цену для данного товара
-  });
-});
