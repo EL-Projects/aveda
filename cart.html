@@ -3,131 +3,195 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Корзина</title>
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-color: #f9f9f9;
-      }
-
-      header {
-        background-color: #4caf50;
-        color: white;
-        padding: 20px;
-        border-radius: 8px;
-      }
-
-      .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .btn-back {
-        margin-left: 20px;
-        padding: 10px 15px;
-        background-color: #fff;
-        color: #4caf50;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-      }
-
-      main {
-        margin-top: 20px;
-      }
-
-      .cart-items {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background-color: white;
-        padding: 10px;
-        max-width: 600px;
-      }
-
-      .cart-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        border-bottom: 1px solid #eee;
-      }
-
-      .cart-item:last-child {
-        border-bottom: none;
-      }
-
-      .cart-item span {
-        font-size: 16px;
-      }
-
-      .cart-item div {
-        display: flex;
-        align-items: center;
-      }
-
-      .cart-item button {
-        margin: 0 5px;
-        padding: 5px 10px;
-      }
-
-      .cart-total {
-        font-weight: bold;
-        margin-top: 15px;
-      }
-
-      .btn-clear {
-        margin-top: 10px;
-        padding: 10px 15px;
-        background-color: #ff5733;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .btn-clear:hover {
-        background-color: #c0392b;
-      }
-
-      button {
-        padding: 5px 10px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #45a049;
-      }
-    </style>
+    <title>Shopping Bag</title>
+    <link rel="stylesheet" href="./css/main.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header>
+    <header class="section cart-header">
+      <div class="header">
+        <div>
+          <a href="./index.html" class="logo-link link">Aveda</a>
+        </div>
+        <nav class="header-nav">
+          <ul class="header-nav-list list">
+            <li class="header-nav-item">
+              <a href="./index.html" class="header-nav-item-link link">Home</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="../shop.html" class="header-nav-item-link link">Shop</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="" class="header-nav-item-link link">About</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="" class="header-nav-item-link link">Event</a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <div class="cart-icon-wrapper">
+            <span class="cart-icon" onclick="location.href='cart.html'"
+              ><svg class="icon" width="30px" height="30px">
+                <use href="./img/icon.svg#bag_icon"></use></svg
+            ></span>
+            <span class="cart-badge" id="cart-badge"></span>
+          </div>
+
+          <a href="./cart.html" class="cart-link link"> </a>
+
+          <button type="button" class="mobile-menu-open-btn" data-menu-open>
+            <svg class="mobile-menu-open-btn" width="18px" height="16px">
+              <use href="./img/icon.svg#mobile-icon-open"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-menu" data-menu>
+          <div class="container mobile-menu__container">
+            <button
+              type="button"
+              class="mobile-menu__close-btn"
+              data-menu-close
+            >
+              <svg class="mobile-menu__close-icon" width="18px" height="16px">
+                <use href="./img/icon.svg#mobile-icon-close"></use>
+              </svg>
+            </button>
+            <ul class="mobile-menu-list list">
+              <li class="mobile-menu__item">
+                <a
+                  class="mobile-menu__link link current"
+                  href="./index.html"
+                ></a>
+              </li>
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href=""></a>
+              </li>
+
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href=""></a>
+              </li>
+
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href=""></a>
+              </li>
+              <li class="mobile-menu__item">
+                <a class="mobile-menu__link link" href=""></a>
+              </li>
+              <li class="mobile-menu__item mobile-menu-contacts">
+                <a class="mobile-menu__link link" href="#"></a>
+              </li>
+            </ul>
+
+            <ul class="mobile-menu-contacts-list list">
+              <li class="mobile-menu-contacts__item">
+                <a class="mobile-menu-contacts__link-tel link" href=""></a>
+              </li>
+              <li class="mobile-menu-contacts__item">
+                <a class="mobile-menu-contacts__link-mail link" href=""> </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div class="header-container">
-        <h1>Корзина</h1>
         <div class="cart-info">
           <!-- <span>Товаров в корзине: <span id="cart-badge">0</span></span> -->
           <a href="index.html" class="btn-back">Назад к покупкам</a>
         </div>
       </div>
     </header>
-
-    <main id="cart">
-      <h2>Содержимое вашей корзины</h2>
+    <h1 class="shopping-bag-title">Shopping Bag</h1>
+    <main id="cart" class="cart-main">
       <div id="cart-items" class="cart-items"></div>
-      <div id="cart-total" class="cart-total">Общая сумма: 0 €.</div>
-      <button id="clear-cart" class="btn-clear">Очистить корзину</button>
+      <div>
+        <div id="cart-total" class="cart-total">Total: 0 €.</div>
+        <!-- <button id="clear-cart" class="btn-clear">Очистить корзину</button> -->
+      </div>
       <button id="checkout" class="btn-clear" style="background-color: #28a745">
         Оплатить
       </button>
     </main>
-
+    <footer class="section">
+      <div class="footer">
+        <div class="footer-without-copyright">
+          <div class="footer-list-wrapper">
+            <h2 class="footer-list-title">Shop</h2>
+            <ul class="footer-list list">
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href=""
+                  >Shipping & Returns
+                </a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Payments</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">FAQ</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href=""
+                  >Privacy Policy
+                </a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href=""
+                  >Terms & Conditions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-list-wrapper">
+            <h2 class="footer-list-title">The Company</h2>
+            <ul class="footer-list list">
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Cotacts</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Stockists</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-list-wrapper footer-margin">
+            <h2 class="footer-list-title">The Comunity</h2>
+            <ul class="footer-list list">
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Investors</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Beauty guide</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-list-wrapper footer-margin">
+            <h2 class="footer-list-title">Follow us</h2>
+            <ul class="footer-list list">
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Facebook</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Instagram</a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Youtube </a>
+              </li>
+              <li class="footer-list-item">
+                <a class="footer-list-item-link link" href="">Pinterest</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p class="copyright-text">© AVEDA Cosmetics 2024</p>
+      </div>
+    </footer>
+    <script src="./js/mobile.js"></script>
     <script src="./js/cart.js"></script>
   </body>
 </html>

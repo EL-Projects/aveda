@@ -1,8 +1,17 @@
 // Массив товаров, которые можно добавить в корзину
 const products = [
-  { id: 1, name: "Товар 1", price: 19.99 },
-  { id: 2, name: "Товар 2", price: 19.99 },
-  { id: 3, name: "Товар 3", price: 300 },
+  { id: 1, name: "Товар 1", price: 19.99, image: "images/image1.png" },
+  {
+    id: 2,
+    name: "Eco Soap",
+    price: 19.99,
+    image: "images/image2.png",
+    multipliers: [
+      { displayName: "50 g", value: 1 },
+      { displayName: "90 g", value: 2 },
+    ],
+  },
+  { id: 3, name: "Товар 3", price: 300, image: "images/image3.png" },
 ];
 
 // Инициализация корзины
@@ -138,30 +147,70 @@ function displayCartItems() {
   let total = 0;
 
   cart.forEach((item) => {
+    const product = products.find((p) => p.id === item.id); // Получаем информацию о продукте
     const itemTotal = (item.price * item.quantity).toFixed(2);
     total += parseFloat(itemTotal); // Корректное сложение
 
     const itemElement = document.createElement("div");
     itemElement.classList.add("cart-item");
-    itemElement.innerHTML = `
-      <span>${products.find((p) => p.id === item.id).name} (Множитель: ${
-      item.multiplier
-    })</span>
-      <span>${item.quantity} x ${item.price} €</span>
-      <span>${itemTotal} €</span>
-      <button onclick="decreaseCartQuantity('${
-        item.uniqueId
-      }')">-</button> <!-- Кнопка для уменьшения -->
-      <span>${item.quantity}</span> <!-- Отображение количества -->
-      <button onclick="increaseCartQuantity('${
-        item.uniqueId
-      }')">+</button> <!-- Кнопка для увеличения -->
-      <button onclick="removeCartItem('${item.uniqueId}')">Delete</button>
+
+    // Создаем контейнер для изображения
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("cart-item-image-container");
+    imageContainer.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" class="cart-item-image">
     `;
-    cartItemsContainer.appendChild(itemElement);
+
+    // Создаем контейнер для информации
+    const infoContainer = document.createElement("div");
+    infoContainer.classList.add("cart-item-info");
+    const multiplierDisplayName = product.multipliers
+      ? product.multipliers.find((m) => m.value === item.multiplier).displayName
+      : "Без множителя";
+
+    infoContainer.innerHTML = `
+      <span>${product.name}</span>
+      <span>${multiplierDisplayName}</span>
+      <div class="cart-item-actions">
+        <button onclick="removeCartItem('${item.uniqueId}')">Удалить</button>
+        <button onclick="decreaseCartQuantity('${item.uniqueId}')">-</button>
+        <span>${item.quantity}</span>
+        <button onclick="increaseCartQuantity('${item.uniqueId}')">+</button>
+      </div>
+    `;
+
+    // Создаем отдельные элементы для отображения цены и подитога
+    const priceElement = document.createElement("span");
+    priceElement.textContent = `${item.price} €`; // Цена товара
+
+    const subtotalLabel = document.createElement("span");
+    subtotalLabel.textContent = "Subtotal: "; // Текст "Subtotal"
+
+    const subtotalValue = document.createElement("span");
+    subtotalValue.textContent = `${itemTotal} €`; // Подитог
+
+    // Добавляем элементы для цены и подитога в контейнер
+    infoContainer.appendChild(priceElement);
+    infoContainer.appendChild(subtotalLabel);
+    infoContainer.appendChild(subtotalValue);
+
+    // Добавляем оба контейнера на страницу
+    cartItemsContainer.appendChild(imageContainer);
+    cartItemsContainer.appendChild(infoContainer);
   });
 
-  cartTotalContainer.textContent = `Total price: ${total.toFixed(2)} €`; // Форматируем общую цену
+  // Создание отдельного элемента для Total
+  cartTotalContainer.innerHTML = ""; // Очищаем контейнер перед добавлением новых элементов
+
+  const totalLabel = document.createElement("span");
+  totalLabel.textContent = "Total: "; // Текст "Total"
+
+  const totalValue = document.createElement("span");
+  totalValue.textContent = `${total.toFixed(2)} €`; // Сумма
+
+  // Добавляем элементы для Total в контейнер
+  cartTotalContainer.appendChild(totalLabel);
+  cartTotalContainer.appendChild(totalValue);
 }
 
 // Очистка корзины
@@ -217,9 +266,7 @@ function handleCheckout() {
   );
 
   // Здесь вы можете интегрировать платёжный шлюз или систему оплаты
-  alert(
-    `Сумма к оплате: ${totalAmount.toFixed(2)} руб. Оплата произведена успешно!`
-  );
+  alert(`Сумма к оплате: ${totalAmount.toFixed(2)} € Pay complete!`);
 
   // Очистка корзины после успешной оплаты
   clearCart();
