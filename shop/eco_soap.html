@@ -164,8 +164,9 @@
                     ></span>
                   </p>
                   <div class="multipliers eco-soap-product-calculation-input">
-                    <label>
+                    <label class="eco-soap-weigth-text">
                       <input
+                        class="btn"
                         type="radio"
                         name="multiplier-2"
                         value="1"
@@ -174,8 +175,9 @@
                       />
                       50 g
                     </label>
-                    <label>
+                    <label class="eco-soap-weigth-text">
                       <input
+                        class="btn"
                         type="radio"
                         name="multiplier-2"
                         value="2"
@@ -185,17 +187,23 @@
                     </label>
                   </div>
                   <div class="quantity-controls">
-                    <button class="minus-button" onclick="decreaseQuantity(2)">
+                    <button
+                      class="minus-button btn"
+                      onclick="decreaseQuantity(2)"
+                    >
                       -
                     </button>
                     <span class="product-quantity" id="quantity-2">1</span>
-                    <button class="plus-button" onclick="increaseQuantity(2)">
+                    <button
+                      class="plus-button btn"
+                      onclick="increaseQuantity(2)"
+                    >
                       +
                     </button>
                   </div>
 
-                  <p class="total-price" id="total-price-2">19,99 €</p>
-                  <div class="button-div">
+                  <p class="total-price" id="total-price-2">19.99 €</p>
+                  <div class="eco-button-div">
                     <button
                       class="eco-soap-list-shop-button btn button"
                       data-id="2"

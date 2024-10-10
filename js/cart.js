@@ -1,6 +1,6 @@
 // Массив товаров, которые можно добавить в корзину
 const products = [
-  { id: 1, name: "Товар 1", price: 19.99, image: "images/image1.png" },
+  { id: 1, name: "Body Brush", price: 29.99, image: "images/image1.png" },
   {
     id: 2,
     name: "Eco Soap",
@@ -31,12 +31,11 @@ function updateCartBadge() {
 
 // Вызов функции для обновления бейджа при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
-  // Обновление бейджа при загрузке
   updateCartBadge();
 });
+
 // Добавление товара в корзину
 function addToCart(id, price, multiplier) {
-  // Создаём уникальный идентификатор для товара в корзине
   const uniqueId = `${id}-${multiplier}`;
   const existingItem = cart.find((item) => item.uniqueId === uniqueId);
   const quantity = quantities[id];
@@ -47,7 +46,7 @@ function addToCart(id, price, multiplier) {
     cart.push({
       uniqueId: uniqueId, // Уникальный идентификатор
       id: id,
-      price: (price * multiplier).toFixed(2), // Убедитесь, что цена корректно вычисляется
+      price: (price * multiplier).toFixed(2),
       quantity: quantity,
       multiplier,
     });
@@ -127,7 +126,7 @@ function getMultiplier(id) {
   );
   for (const input of multiplierInputs) {
     if (input.checked) {
-      return parseFloat(input.value); // Используем parseFloat
+      return parseFloat(input.value);
     }
   }
   return 1;
@@ -135,18 +134,17 @@ function getMultiplier(id) {
 
 // Обновление отображаемой начальной цены при выборе множителя
 function updateDisplayedPrice(id) {
-  const basePrice = products.find((p) => p.id === id).price; // Получаем базовую цену из массива продуктов
+  const basePrice = products.find((p) => p.id === id).price;
   const multiplier = getMultiplier(id);
-  const newPrice = (basePrice * multiplier).toFixed(2); // Вычисляем новую начальную цену
-  document.getElementById(`base-price-${id}`).textContent = `${newPrice} €`; // Обновляем отображение начальной цены
+  const newPrice = (basePrice * multiplier).toFixed(2);
+  document.getElementById(`base-price-${id}`).textContent = `${newPrice} €`;
 
   // Сбрасываем количество товара в 1 при смене множителя
   quantities[id] = 1;
-  document.getElementById(`quantity-${id}`).textContent = quantities[id]; // Обновляем отображение количества
-  updatePrice(id); // Обновляем итоговую цену
+  document.getElementById(`quantity-${id}`).textContent = quantities[id];
+  updatePrice(id);
 }
 
-// Отображение товаров в корзине
 // Отображение товаров в корзине
 function displayCartItems() {
   const cartItemsContainer = document.getElementById("cart-items");
@@ -157,7 +155,7 @@ function displayCartItems() {
 
   // Если корзина пустая, можно добавить сообщение об этом
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = "<p>Корзина пуста.</p>";
+    cartItemsContainer.innerHTML = "<p>Сart is empty</p>";
     return; // Завершаем выполнение функции, если корзина пуста
   }
 
@@ -175,127 +173,97 @@ function displayCartItems() {
     const imageContainer = document.createElement("div");
     imageContainer.classList.add("cart-item-image-container");
     imageContainer.innerHTML = `
-    <img src="${product.image}" alt="${product.name}" class="cart-item-image">
-  `;
+      <img src="${product.image}" alt="${product.name}" class="cart-item-image">
+    `;
 
     // Создаем контейнер для информации
     const infoContainer = document.createElement("div");
     infoContainer.classList.add("cart-item-info");
     const multiplierDisplayName = product.multipliers
       ? product.multipliers.find((m) => m.value === item.multiplier).displayName
-      : "Без множителя";
+      : "";
 
     infoContainer.innerHTML = `
-    <div class="product-name-wrap">
-      <span class="product-name">${product.name}</span>
-      <span class="product-name-weight">${multiplierDisplayName}</span>
-    </div>
-    <div class="cart-item-actions">
-      <button class="cart-remove-button" onclick="removeCartItem('${item.uniqueId}')">Remove</button>
-      <span class="cart-button-wrapper">
-        <button class="cart-calc-button" onclick="decreaseCartQuantity('${item.uniqueId}')">-</button>
-        <span class="cart-calc-quantity">${item.quantity}</span>
-        <button class="cart-calc-button" onclick="increaseCartQuantity('${item.uniqueId}')">+</button>
-      </span>
-      <span class="cart-calc-quantity">${item.price}€</span>
-    </div>
-  `;
+      <div class="product-name-wrap">
+        <span class="product-name">${product.name}</span>
+        <span class="product-name-weight">${multiplierDisplayName}</span>
+      </div>
+      <div class="cart-item-actions">
+        <button class="cart-remove-button" onclick="removeCartItem('${item.uniqueId}')">Remove</button>
+        <span class="cart-button-wrapper">
+          <button class="cart-calc-button" onclick="decreaseCartQuantity('${item.uniqueId}')">-</button>
+          <span class="cart-calc-quantity">${item.quantity}</span>
+          <button class="cart-calc-button" onclick="increaseCartQuantity('${item.uniqueId}')">+</button>
+        </span>
+        <span class="cart-calc-quantity">${itemTotal} €</span>
+      </div>
+    `;
 
-    // Создаем общий контейнер для Subtotal, Total и кнопки
-    const summaryContainer = document.createElement("div");
-    summaryContainer.classList.add("summary-container"); // Добавьте класс для стилизации
-
-    // Создаем контейнер для Subtotal и Total
-    const totalContainer = document.createElement("div");
-    totalContainer.classList.add("subtotal-total-container");
-
-    // Главный текст
-    const mainText = document.createElement("span");
-    mainText.classList.add("main-text");
-    mainText.textContent = "Order Summary"; // Основной текст
-
-    // Подитог (Subtotal)
-    const subtotalDiv = document.createElement("div"); // Новый div для Subtotal
-    subtotalDiv.classList.add("subtotal-container"); // Класс для стилизации
-
-    const subtotalSpan = document.createElement("span"); // Новый span для текста Subtotal
-    subtotalSpan.classList.add("subtotal-span");
-    subtotalSpan.textContent = "Subtotal: ";
-
-    const subtotalValueSpan = document.createElement("span"); // Новый span для значения Subtotal
-    subtotalValueSpan.classList.add("subtotal-value");
-    subtotalValueSpan.textContent = `${itemTotal} €`;
-
-    subtotalDiv.appendChild(subtotalSpan); // Добавляем текст Subtotal в div
-    subtotalDiv.appendChild(subtotalValueSpan); // Добавляем значение Subtotal в div
-
-    // Итог (Total)
-    const totalDiv = document.createElement("div"); // Новый div для Total
-    totalDiv.classList.add("total-container"); // Класс для стилизации
-
-    const totalSpan = document.createElement("span"); // Новый span для текста Total
-    totalSpan.classList.add("total-span");
-    totalSpan.textContent = "Total: ";
-
-    const totalValueSpan = document.createElement("span"); // Новый span для значения Total
-    totalValueSpan.classList.add("total-value");
-    totalValueSpan.textContent = `${total.toFixed(2)} €`;
-
-    totalDiv.appendChild(totalSpan); // Добавляем текст Total в div
-    totalDiv.appendChild(totalValueSpan); // Добавляем значение Total в div
-
-    // Заглушка для иконки
-    const iconPlaceholder = document.createElement("span");
-    iconPlaceholder.classList.add("icon-placeholder");
-    iconPlaceholder.innerHTML = '<i class="fa fa-shopping-cart"></i>'; // Здесь можно вставить любую иконку
-
-    // Текст перед иконкой
-    const iconTextPlaceholder = document.createElement("span");
-    iconTextPlaceholder.classList.add("icon-text-placeholder");
-    iconTextPlaceholder.textContent = "Ваш заказ"; // Текст перед иконкой
-
-    // Добавляем элементы в контейнер Subtotal и Total
-    totalContainer.appendChild(mainText);
-    totalContainer.appendChild(subtotalDiv); // Добавляем новый div для Subtotal
-    totalContainer.appendChild(totalDiv); // Добавляем новый div для Total
-    totalContainer.appendChild(iconTextPlaceholder);
-    totalContainer.appendChild(iconPlaceholder);
-
-    // Создаем контейнер для кнопки оплаты
-    const buttonContainer = document.createElement("div");
-    buttonContainer.classList.add("button-container");
-
-    // Кнопка оплаты
-    const checkoutButton = document.createElement("button");
-    checkoutButton.classList.add("checkout-button");
-    checkoutButton.textContent = "Checkout";
-    checkoutButton.addEventListener("click", handleCheckout); // Привязываем обработчик оплаты
-
-    // Добавляем кнопку оплаты в контейнер кнопки
-    buttonContainer.appendChild(checkoutButton);
-
-    // Добавляем оба контейнера в общий контейнер
-    summaryContainer.appendChild(totalContainer);
-    summaryContainer.appendChild(buttonContainer);
-
-    // Добавляем все элементы на страницу
+    // Добавляем элементы на страницу
     itemElement.appendChild(imageContainer);
     itemElement.appendChild(infoContainer);
-    itemElement.appendChild(summaryContainer); // Добавляем общий контейнер
-
-    // Добавляем информацию о продукте на страницу
     cartItemsContainer.appendChild(itemElement);
   });
-  // Обновляем общую сумму для всех товаров в корзине
-  const totalLabel = document.createElement("span");
-  totalLabel.textContent = "Total: "; // Текст "Total"
 
-  const totalValue = document.createElement("span");
-  totalValue.textContent = `${total.toFixed(2)} €`; // Общая сумма
+  // Создаем общий контейнер для итоговой суммы и кнопки оформления заказа
+  const subtotalTotalContainer = document.createElement("div");
+  subtotalTotalContainer.classList.add("subtotal-total-container");
 
-  // Добавляем итоговую сумму в контейнер
-  cartTotalContainer.appendChild(totalLabel);
-  cartTotalContainer.appendChild(totalValue);
+  // Текст вверху контейнера
+  const subtotalText = document.createElement("div");
+  subtotalText.classList.add("subtotal-text"); // Класс для стилизации текста
+  subtotalText.textContent = "Subtotal and Total"; // Сам текст
+  // Добавляем текст в контейнер
+  subtotalTotalContainer.appendChild(subtotalText);
+
+  // Итог (Total)
+  const totalDiv = document.createElement("div");
+  totalDiv.classList.add("total-container", "total-display"); // Добавляем два класса: total-container и total-display
+  totalDiv.innerHTML = `<span>Total </span><span>${total.toFixed(2)} €</span>`;
+
+  // Добавляем итоговую сумму в общий контейнер
+  subtotalTotalContainer.appendChild(totalDiv);
+  // Ссылка под итоговой суммой
+  const linkElement = document.createElement("a");
+  linkElement.classList.add("subtotal-link"); // Класс для стилизации ссылки
+  linkElement.href = "#"; // Ссылка
+  linkElement.textContent = "More details about prices"; // Текст ссылки
+
+  // Добавляем ссылку под итоговую сумму
+  subtotalTotalContainer.appendChild(linkElement);
+  // Создаем контейнер для кнопки
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("checkout-button-container"); // Класс для кнопки
+
+  const checkoutButton = document.createElement("button");
+  checkoutButton.classList.add("checkout-button");
+  checkoutButton.textContent = "Checkout";
+  checkoutButton.addEventListener("click", handleCheckout);
+
+  // Добавляем кнопку в контейнер
+  buttonContainer.appendChild(checkoutButton);
+
+  // Текст над иконками
+  const iconText = document.createElement("span");
+  iconText.classList.add("icon-text"); // Класс для текста над иконками
+  iconText.textContent = "Accepted Payment Methods"; // Текст, который будет отображаться над иконками
+
+  // Иконки под кнопкой
+  const iconContainer = document.createElement("div");
+  iconContainer.classList.add("icon-container"); // Класс для иконок
+  iconContainer.innerHTML = `
+  <i class="fa fa-credit-card"></i>
+  <i class="fa fa-paypal"></i>
+  <i class="fa fa-apple-pay"></i>
+`; // Иконки (замените на нужные)
+
+  // Добавляем текст над иконками и иконки в контейнер
+  buttonContainer.appendChild(iconText);
+  buttonContainer.appendChild(iconContainer);
+
+  // Добавляем общий контейнер и кнопку в контейнер для общей суммы
+  cartTotalContainer.appendChild(subtotalTotalContainer);
+  cartTotalContainer.appendChild(buttonContainer);
 }
 
 // Очистка корзины
@@ -305,6 +273,18 @@ function clearCart() {
   updateCartBadge();
   displayCartItems();
 }
+
+// Обработка оформления заказа
+function handleCheckout() {
+  // Здесь можно добавить логику оформления заказа
+  alert("PAYMENT COMPLETED");
+  clearCart(); // Очищаем корзину после оформления заказа
+}
+
+// Инициализация отображения товаров в корзине при загрузке
+document.addEventListener("DOMContentLoaded", () => {
+  displayCartItems();
+});
 
 // События на главной странице
 if (document.querySelector(".products")) {
@@ -327,34 +307,4 @@ if (document.querySelector(".products")) {
   products.forEach((product) => {
     updatePrice(product.id); // Обновляем итоговые цены
   });
-}
-
-// События на странице корзины
-if (document.querySelector("#cart-items")) {
-  displayCartItems();
-
-  // document.getElementById("clear-cart").addEventListener("click", clearCart);
-
-  // Обработчик события для кнопки "Оплатить"
-  document.getElementById("checkout").addEventListener("click", handleCheckout);
-  updateCartBadge();
-}
-
-// Функция обработки оплаты
-function handleCheckout() {
-  if (cart.length === 0) {
-    alert("Ваша корзина пуста! Добавьте товары для оплаты.");
-    return;
-  }
-
-  const totalAmount = cart.reduce(
-    (total, item) => total + parseFloat(item.price) * item.quantity,
-    0
-  );
-
-  alert(`Price for pay: ${totalAmount.toFixed(2)} € Pay complete!`);
-
-  // Очистка корзины после успешной оплаты
-  clearCart();
-  console.log("Корзина очищена."); // Добавьте отладочное сообщение
 }

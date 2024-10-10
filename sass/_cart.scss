@@ -21,7 +21,7 @@
 
 .cart-item-image-container {
   height: 482px;
-  width: 523px;
+  min-width: 523px;
   border: #000 1px solid;
   display: flex;
   align-items: center;
@@ -29,11 +29,11 @@
 }
 
 .cart-items {
-  display: flex;
   margin-top: 40px;
 }
 
 .cart-item {
+  margin-top: 50px;
   display: flex;
   justify-content: space-between;
   // align-items: center;
@@ -62,8 +62,9 @@
 }
 .product-name {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 48px;
+  min-width: 300px;
 }
 
 .product-name-weight {
@@ -139,15 +140,15 @@
   display: flex;
   background-color: #e5e3dc;
   flex-direction: column;
-  width: 590px;
+  width: 510px;
   height: 482px;
   padding: 40px;
 }
 
-#checkout,
-#cart-total {
-  display: none; /* Скрыть элементы */
-}
+// #checkout,
+// #cart-total {
+//   display: none; /* Скрыть элементы */
+// }
 
 .main-text {
   font-family: "Montserrat", sans-serif;
@@ -163,21 +164,21 @@
 .button-container {
 }
 
-.subtotal-span {
+// .total-container {
+//   font-family: "Montserrat", sans-serif;
+//   font-weight: 400;
+//   font-size: 30px;
+//   margin-top: 40px;
+// }
+// .subtotal-value {
+//   font-family: "Montserrat", sans-serif;
+//   font-weight: 400;
+//   font-size: 30px;
+//   margin-top: 40px;
+// }
+.total-container {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  margin-top: 40px;
-}
-.subtotal-value {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  margin-top: 40px;
-}
-.total-span {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 32px;
 }
 .total-value {
