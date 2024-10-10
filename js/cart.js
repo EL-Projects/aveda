@@ -195,6 +195,8 @@ function displayCartItems() {
           <span class="cart-calc-quantity">${item.quantity}</span>
           <button class="cart-calc-button" onclick="increaseCartQuantity('${item.uniqueId}')">+</button>
         </span>
+        
+        <span class="cart-calc-quantity">€</span>
         <span class="cart-calc-quantity">${itemTotal} €</span>
       </div>
     `;
