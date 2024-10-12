@@ -29,6 +29,11 @@
     // margin-right: 30px;
     margin-left: 0;
   }
+  .cart-icon-wrapper {
+    right: 40px;
+    position: relative;
+    float: right;
+  }
 
   .icon {
     width: 30px;
@@ -65,7 +70,7 @@
     letter-spacing: 0;
     margin-bottom: 8px;
   }
-  .main-text {
+  .main-page-text {
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     font-size: 16px;
@@ -239,7 +244,12 @@
   //   .products-image {
   //     display: none;
   //   }
-
+  .main-page-products {
+    display: flex;
+    border-top: #000000 1px solid;
+    border-bottom: #000000 1px solid;
+    margin-top: 80px;
+  }
   .products-wrapper {
     padding-left: 60px;
     max-width: 588px;

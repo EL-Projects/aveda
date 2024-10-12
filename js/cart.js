@@ -32,6 +32,7 @@ function updateCartBadge() {
 // Вызов функции для обновления бейджа при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
   updateCartBadge();
+  updateCartIconShift();
 });
 
 // Добавление товара в корзину
@@ -54,6 +55,7 @@ function addToCart(id, price, multiplier) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartBadge();
+  updateCartIconShift();
 
   // Сбрасываем количество товара после добавления в корзину
   quantities[id] = 1;
@@ -66,6 +68,7 @@ function increaseQuantity(id) {
   quantities[id]++;
   document.getElementById(`quantity-${id}`).textContent = quantities[id];
   updatePrice(id); // Обновляем итоговую цену
+  updateCartIconShift();
 }
 
 // Уменьшение количества товара на главной странице
@@ -74,6 +77,7 @@ function decreaseQuantity(id) {
     quantities[id]--;
     document.getElementById(`quantity-${id}`).textContent = quantities[id];
     updatePrice(id); // Обновляем итоговую цену
+    updateCartIconShift();
   }
 }
 
@@ -105,6 +109,7 @@ function removeCartItem(uniqueId) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartBadge();
   displayCartItems();
+  updateCartIconShift();
 }
 
 // Обновление итоговой цены товара на главной странице
@@ -145,6 +150,23 @@ function updateDisplayedPrice(id) {
   updatePrice(id);
 }
 
+// newaddon
+// Обновление корзины и смещение иконки
+function updateCartIconShift() {
+  const cartIconWrapper = document.querySelector(".cart-icon-wrapper");
+
+  if (cart.length > 0) {
+    // Если корзина не пуста
+    if (cartIconWrapper) {
+      cartIconWrapper.classList.add("shifted"); // Добавляем класс
+    }
+  } else {
+    // Если корзина пуста
+    if (cartIconWrapper) {
+      cartIconWrapper.classList.remove("shifted"); // Убираем класс
+    }
+  }
+}
 // Отображение товаров в корзине
 function displayCartItems() {
   const cartItemsContainer = document.getElementById("cart-items");
@@ -155,7 +177,8 @@ function displayCartItems() {
 
   // Если корзина пустая, можно добавить сообщение об этом
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = "<p>Сart is empty</p>";
+    cartItemsContainer.innerHTML =
+      '<p class="empty-cart-message">Cart is empty</p>';
     return; // Завершаем выполнение функции, если корзина пуста
   }
 
@@ -196,7 +219,7 @@ function displayCartItems() {
           <button class="cart-calc-button" onclick="increaseCartQuantity('${item.uniqueId}')">+</button>
         </span>
         
-        <span class="cart-calc-quantity">€</span>
+        <span class="cart-calc-quantity-subtotal">Subtotal</span>
         <span class="cart-calc-quantity">${itemTotal} €</span>
       </div>
     `;
@@ -214,7 +237,7 @@ function displayCartItems() {
   // Текст вверху контейнера
   const subtotalText = document.createElement("div");
   subtotalText.classList.add("subtotal-text"); // Класс для стилизации текста
-  subtotalText.textContent = "Subtotal and Total"; // Сам текст
+  subtotalText.textContent = "Order Summary"; // Сам текст
   // Добавляем текст в контейнер
   subtotalTotalContainer.appendChild(subtotalText);
 
@@ -229,7 +252,7 @@ function displayCartItems() {
   const linkElement = document.createElement("a");
   linkElement.classList.add("subtotal-link"); // Класс для стилизации ссылки
   linkElement.href = "#"; // Ссылка
-  linkElement.textContent = "More details about prices"; // Текст ссылки
+  linkElement.textContent = "Promo Code and Gift Card"; // Текст ссылки
 
   // Добавляем ссылку под итоговую сумму
   subtotalTotalContainer.appendChild(linkElement);
@@ -248,15 +271,34 @@ function displayCartItems() {
   // Текст над иконками
   const iconText = document.createElement("span");
   iconText.classList.add("icon-text"); // Класс для текста над иконками
-  iconText.textContent = "Accepted Payment Methods"; // Текст, который будет отображаться над иконками
+  iconText.textContent = "We accept"; // Текст, который будет отображаться над иконками
 
   // Иконки под кнопкой
   const iconContainer = document.createElement("div");
   iconContainer.classList.add("icon-container"); // Класс для иконок
   iconContainer.innerHTML = `
-  <i class="fa fa-credit-card"></i>
-  <i class="fa fa-paypal"></i>
-  <i class="fa fa-apple-pay"></i>
+  <i class="fa fa-visa"><img
+                class="payment-icon"
+                src="payment_images/visa.png"
+                alt="visa"
+              /></i>
+  <i class="fa fa-maestro">
+              <img
+                class="payment-icon"
+                src="payment_images/maestro.png"
+                alt="maestro"
+              />
+            </i>
+  <i class="fa fa-master"><img
+                class="payment-icon"
+                src="payment_images/master.png"
+                alt="master"
+              /></i>
+  <i class="fa fa-paypal"><img
+                class="payment-icon"
+                src="payment_images/paypal.png"
+                alt="paypal"
+              /></i>
 `; // Иконки (замените на нужные)
 
   // Добавляем текст над иконками и иконки в контейнер
@@ -274,6 +316,7 @@ function clearCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartBadge();
   displayCartItems();
+  updateCartIconShift();
 }
 
 // Обработка оформления заказа

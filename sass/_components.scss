@@ -220,15 +220,26 @@ body {
 // desktop
 
 .cart-icon-wrapper {
-  right: 90px;
+  // right: 90px;
   position: relative;
   float: right;
 }
+// .cart-icon-shift-left {
+//   margin-left: -30px; /* Смещение влево */
+//   transition: margin-left 0.3s ease; /* Плавное смещение */
+// }
+// .cart-icon-empty {
+//   right: 0; /* Смещаем иконку на 30px вправо */
+// }
 .cart-icon {
   font-size: 30px;
   cursor: pointer;
   color: #007bff;
   fill: #000000;
+}
+.cart-icon-wrapper.shifted {
+  right: 60px; /* Или любое другое свойство для смещения */
+  transition: right 0.3s ease; /* Плавный переход для изменения позиции */
 }
 .cart-badge {
   font-family: "Montserrat", sans-serif;
@@ -288,4 +299,17 @@ body {
 
 .cursor {
   cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
