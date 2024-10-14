@@ -60,6 +60,7 @@ body {
 
 /* Убедитесь, что нет специфических стилей для Safari */
 body {
+  -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased; /* Если используется, временно отключите */
   text-rendering: optimizeLegibility;
 }
