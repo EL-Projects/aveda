@@ -256,6 +256,8 @@ body {
 }
 
 .minus-button {
+  position: relative;
+  bottom: 2px;
   font-size: 48px;
   margin-right: 47px;
   background-color: transparent;
@@ -331,6 +333,75 @@ body {
   // margin-left: -(XXX/2) px;
 }
 
-.input-button {
-  margin-right: 20px;
+// .input-button {
+//   margin-right: 20px;
+//   position: relative;
+//   top: -5px;
+// }
+
+/* Скрываем стандартную радио-кнопку */
+// input[type="radio"] {
+//   display: none;
+// }
+.radio-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  &:not(:last-child) {
+    margin-right: 50px;
+  }
+}
+/* Стили для кастомного радио-круга */
+/* Скрываем стандартную радио-кнопку через opacity, чтобы не нарушить поведение */
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Стили для кастомного радио-круга */
+.custom-radio {
+  // display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 50px;
+  font-size: 40px;
+}
+
+.custom-radio::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: border-color 0.3s ease;
+}
+
+/* Стили для активного состояния радио-кнопки */
+input[type="radio"]:checked + .custom-radio::before {
+  border-color: #000;
+  background-color: #000;
+}
+
+/* Стили для внутренней точки */
+.custom-radio::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+input[type="radio"]:checked + .custom-radio::after {
+  transform: translateY(-50%) scale(1);
 }

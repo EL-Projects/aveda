@@ -119,8 +119,8 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 40px;
-  &:not(:first-child) {
-    margin-left: 50px;
+  &:not(:last-child) {
+    margin-right: 50px;
   }
   // margin-left: 20px;
 }
