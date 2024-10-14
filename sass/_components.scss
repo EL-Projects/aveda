@@ -82,7 +82,9 @@ body {
   // src: url("./../fonts/Moniqa-BoldDisplay.otf") format("opentype");
   font-family: "Moniqa-BoldCondensedDisplay";
   // src: url("../fonts/Moniqa-BoldCondensedDisplay.ttf") format("truetype");
-  src: url(../fonts/Moniqa-BoldCondensedDisplay.ttf) format("truetype");
+  src: url(../fonts/Moniqa-BoldCondensedDisplay.ttf) format("truetype"),
+    url(../fonts/moniqa-display.woff) format("woff"),
+    url(../fonts/moniqa-display.woff2) format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
