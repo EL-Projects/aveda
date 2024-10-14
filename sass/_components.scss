@@ -68,12 +68,19 @@ body {
 .btn {
   cursor: pointer;
 }
+/* Убедитесь, что нет специфических стилей для Safari */
+body {
+  -webkit-font-smoothing: antialiased; /* Если используется, временно отключите */
+  text-rendering: optimizeLegibility;
+}
 
 @font-face {
   font-family: "Moniqa-BoldDisplay";
   src: url("./../fonts/Moniqa-BoldDisplay.otf") format("opentype");
   font-family: "Moniqa-BoldCondensedDisplay";
-  src: url("./../fonts/Moniqa-BoldCondensedDisplay.ttf") format("opentype");
+  src: url("./../fonts/Moniqa-BoldCondensedDisplay.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 .footer-list-title {
   text-transform: uppercase;
