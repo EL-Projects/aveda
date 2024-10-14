@@ -18,6 +18,8 @@
 
 html {
   box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 *,
@@ -83,6 +85,7 @@ body {
   src: url(../fonts/Moniqa-BoldCondensedDisplay.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 .footer-list-title {
   text-transform: uppercase;
@@ -190,35 +193,6 @@ body {
   }
 }
 
-// .mobile-menu-contacts__item {
-//   :not(:last-child) {
-//     margin-top: 15px;
-//     border-bottom: #3d7097;
-//   }
-// }
-// .mobile-menu-contacts__link-tel {
-//   font-family: inherit;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 18px;
-//   line-height: 40px;
-//   letter-spacing: 0.02em;
-//   color: #757575;
-// }
-// .mobile-menu-contacts__link-mail {
-//   font-family: inherit;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 18px;
-//   line-height: 1.55;
-//   letter-spacing: 0.02em;
-//   color: #757575;
-// }
-// .mobile-menu-contacts {
-//   display: none;
-//   border-bottom: transparent;
-// }
-
 // mobile devices
 
 @media screen and (max-width: 1919px) {
@@ -233,13 +207,7 @@ body {
   position: relative;
   float: right;
 }
-// .cart-icon-shift-left {
-//   margin-left: -30px; /* Смещение влево */
-//   transition: margin-left 0.3s ease; /* Плавное смещение */
-// }
-// .cart-icon-empty {
-//   right: 0; /* Смещаем иконку на 30px вправо */
-// }
+
 .cart-icon {
   font-size: 30px;
   cursor: pointer;
@@ -247,10 +215,6 @@ body {
   fill: #000000;
 }
 
-// .cart-icon-wrapper.shifted {
-//   right: 60px; /* Или любое другое свойство для смещения */
-//   transition: right 0.3s ease; /* Плавный переход для изменения позиции */
-// }
 .cart-badge {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -331,29 +295,13 @@ body {
   position: absolute;
   left: -40px;
 }
-// .mobile-menu-open-btn {
-//   position: relative;
-//   top: 10px;
-//   left: 55px;
-// }
+
 .header-nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  // width: XXXpx;
-  // margin-left: -(XXX/2) px;
 }
 
-// .input-button {
-//   margin-right: 20px;
-//   position: relative;
-//   top: -5px;
-// }
-
-/* Скрываем стандартную радио-кнопку */
-// input[type="radio"] {
-//   display: none;
-// }
 .radio-label {
   font-family: "Montserrat", sans-serif;
   font-size: 40px;
