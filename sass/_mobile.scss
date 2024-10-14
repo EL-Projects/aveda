@@ -43,7 +43,7 @@
     font-weight: 400;
     position: absolute;
     top: -7px;
-    right: 40px;
+    right: 10px;
     background-color: rgba(0, 0, 0, 0);
     color: #000;
     padding: 4px 8px;
@@ -54,7 +54,7 @@
     font-weight: 400;
     position: absolute;
     top: 9px;
-    right: 0px;
+    right: 10px;
     background-color: rgba(0, 0, 0, 0);
     color: #000;
     padding: 4px 8px;
@@ -328,5 +328,14 @@
 
   .footer-margin {
     margin-left: 20px;
+  }
+  .cart-icon-wrapper.shifted {
+    right: 30px; /* Или любое другое свойство для смещения */
+    transition: right 0.3s ease; /* Плавный переход для изменения позиции */
+  }
+  .mobile-menu-open-button {
+    position: relative;
+    top: 10px;
+    left: 55px;
   }
 }

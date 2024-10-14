@@ -173,11 +173,6 @@ body {
   fill: #000000;
 }
 
-.cart-icon-wrapper.shifted {
-  right: 60px; /* Или любое другое свойство для смещения */
-  transition: right 0.3s ease; /* Плавный переход для изменения позиции */
-}
-
 .cart-badge {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -250,6 +245,21 @@ body {
   margin: -1px;
 }
 
+.cart-icon {
+  position: absolute;
+  left: -40px;
+}
+
+.header-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.input-button {
+  margin-right: 20px;
+}
+
 @media screen and (min-width: 375px) and (max-width: 1023px) {
   .technology-item-img {
     max-width: 200px;
@@ -286,7 +296,7 @@ body {
     font-weight: 400;
     position: absolute;
     top: -7px;
-    right: 40px;
+    right: 10px;
     background-color: rgba(0, 0, 0, 0);
     color: #000;
     padding: 4px 8px;
@@ -297,7 +307,7 @@ body {
     font-weight: 400;
     position: absolute;
     top: 9px;
-    right: 0px;
+    right: 10px;
     background-color: rgba(0, 0, 0, 0);
     color: #000;
     padding: 4px 8px;
@@ -530,6 +540,15 @@ body {
   .footer-margin {
     margin-left: 20px;
   }
+  .cart-icon-wrapper.shifted {
+    right: 30px; /* Или любое другое свойство для смещения */
+    transition: right 0.3s ease; /* Плавный переход для изменения позиции */
+  }
+  .mobile-menu-open-button {
+    position: relative;
+    top: 10px;
+    left: 55px;
+  }
 }
 @media screen and (min-width: 1024px) and (max-width: 1919px) {
   .section-main {
@@ -561,9 +580,9 @@ body {
     margin-left: 0;
   }
   .cart-icon-wrapper {
-    right: 40px;
     position: relative;
     float: right;
+    top: -20px;
   }
   .icon {
     width: 30px;
@@ -823,6 +842,25 @@ body {
   }
   .only-tablet {
     display: block;
+  }
+  .cart-icon-wrapper.shifted {
+    right: 40px; /* Или любое другое свойство для смещения */
+    transition: right 0.3s ease; /* Плавный переход для изменения позиции */
+  }
+  .cart-badge {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    position: absolute;
+    top: -2px;
+    right: -40px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #000;
+    padding: 4px 8px;
+    font-size: 25px;
+  }
+  .cart-icon {
+    position: absolute;
+    left: -20px;
   }
 }
 @media screen and (min-width: 1920px) {
@@ -1093,6 +1131,17 @@ body {
   .only-tablet {
     display: none;
   }
+  .cart-icon-wrapper.shifted {
+    right: 60px; /* Или любое другое свойство для смещения */
+    transition: right 0.3s ease; /* Плавный переход для изменения позиции */
+    top: -20px;
+  }
+  .cart-icon-wrapper {
+    top: -20px;
+  }
+  .eco-soap-space-between {
+    margin-bottom: 117px;
+  }
 }
 .eco-soap-images-list {
   display: flex;
@@ -1216,14 +1265,15 @@ body {
   font-size: 24px;
   margin-top: 40px;
   max-width: 890px;
-  margin-bottom: 117px;
 }
 
 .eco-soap-weigth-text {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 40px;
-  margin-left: 20px;
+}
+.eco-soap-weigth-text:not(:first-child) {
+  margin-left: 50px;
 }
 
 .eco-soap-weigth-checkbox:not(:first-child) {
@@ -1331,8 +1381,20 @@ body {
   margin-top: 290px;
 }
 
-.without-weight {
-  margin-top: 465px;
+.eco-soap-product-calculation-input {
+  margin-top: 117px;
+}
+
+.body-brush-space-between {
+  margin-bottom: 0;
+}
+
+.eco-soap-space-between {
+  margin-bottom: 117px;
+}
+
+.body-brush-quantity-space-between {
+  margin-top: 310px;
 }
 
 .cart-header {

@@ -89,6 +89,7 @@ function increaseCartQuantity(uniqueId) {
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartBadge();
     displayCartItems();
+    updateCartIconShift();
   }
 }
 
@@ -100,6 +101,7 @@ function decreaseCartQuantity(uniqueId) {
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartBadge();
     displayCartItems();
+    updateCartIconShift();
   }
 }
 

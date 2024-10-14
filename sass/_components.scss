@@ -237,10 +237,11 @@ body {
   color: #007bff;
   fill: #000000;
 }
-.cart-icon-wrapper.shifted {
-  right: 60px; /* Или любое другое свойство для смещения */
-  transition: right 0.3s ease; /* Плавный переход для изменения позиции */
-}
+
+// .cart-icon-wrapper.shifted {
+//   right: 60px; /* Или любое другое свойство для смещения */
+//   transition: right 0.3s ease; /* Плавный переход для изменения позиции */
+// }
 .cart-badge {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -312,4 +313,24 @@ body {
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+.cart-icon {
+  position: absolute;
+  left: -40px;
+}
+// .mobile-menu-open-btn {
+//   position: relative;
+//   top: 10px;
+//   left: 55px;
+// }
+.header-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  // width: XXXpx;
+  // margin-left: -(XXX/2) px;
+}
+
+.input-button {
+  margin-right: 20px;
 }

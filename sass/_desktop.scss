@@ -13,6 +13,8 @@
     padding-left: 60px;
     padding-right: 60px;
   }
+  .logo {
+  }
   .logo-link {
     font-family: "Moniqa-BoldCondensedDisplay";
     font-size: 100px;
@@ -293,5 +295,19 @@
   }
   .only-tablet {
     display: none;
+  }
+  .cart-icon-wrapper.shifted {
+    right: 60px; /* Или любое другое свойство для смещения */
+    transition: right 0.3s ease; /* Плавный переход для изменения позиции */
+    top: -20px;
+  }
+  .cart-icon-wrapper {
+    top: -20px;
+  }
+  .body-brush-space-between {
+  }
+
+  .eco-soap-space-between {
+    margin-bottom: 117px;
   }
 }
