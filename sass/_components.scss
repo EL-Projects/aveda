@@ -76,10 +76,11 @@ body {
 }
 
 @font-face {
-  font-family: "Moniqa-BoldDisplay";
-  src: url("./../fonts/Moniqa-BoldDisplay.otf") format("opentype");
+  // font-family: "Moniqa-BoldDisplay", sans-serif;
+  // src: url("./../fonts/Moniqa-BoldDisplay.otf") format("opentype");
   font-family: "Moniqa-BoldCondensedDisplay";
-  src: url("./../fonts/Moniqa-BoldCondensedDisplay.ttf") format("truetype");
+  // src: url("../fonts/Moniqa-BoldCondensedDisplay.ttf") format("truetype");
+  src: url(../fonts/Moniqa-BoldCondensedDisplay.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
